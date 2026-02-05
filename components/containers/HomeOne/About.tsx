@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ModalVideo from "react-modal-video";
 import Line from "@/public/images/shape/about-line.png";
-import One from "@/public/images/about/about-image1.jpg";
-import Two from "@/public/images/about/about-image2.png";
+import One from "@/public/images/about/Aboutus.png"; 
+import Two from "@/public/images/about/aboutus1.jpg";
 import Circle from "@/public/images/shape/about-circle.png";
 import Three from "@/public/images/icon/section-title.png";
 import Four from "@/public/images/icon/about-icon1.png";
@@ -18,14 +18,14 @@ const About = () => {
   return (
     <>
       <section className="about-area sub-bg pt-120" id="about-section">
-        <div
+        {/* <div
           className="about__shape "
           data-aos="fade-left"
           data-aos-delay="400"
           data-aos-duration="1500"
         >
           <Image src={Line} alt="shape" priority />
-        </div>
+        </div> */}
         <div className="container">
           <div className="row g-4">
             <div
@@ -48,9 +48,9 @@ const About = () => {
                   </div>
                   <Image src={Two} alt="Image" priority />
                 </div>
-                <div className="circle-shape">
+                {/* <div className="circle-shape">
                   <Image src={Circle} alt="shape" priority />
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="col-xl-6">
@@ -62,7 +62,7 @@ const About = () => {
                   data-aos-duration="1500"
                 >
                   <Image className="me-1" src={Three} alt="icon" priority />
-                  ABOUT InnSIS
+                  ABOUT INNSIS
                 </h5>
                 <h2
                   className=""
@@ -78,55 +78,8 @@ const About = () => {
                   data-aos-delay="400"
                   data-aos-duration="1500"
                 >
-                  InnSIS is a fully integrated School Information and Management System designed to support administrators, educators, students, and parents with intelligent, data-driven tools for effective education management. The platform consolidates all critical school functions—including academic planning, student administration, financial management, scheduling, and analytics—into a centralized system that streamlines operations and enhances strategic decision-making.
+                  INNSIS is a fully integrated School Information and Management System designed to support administrators, educators, students, and parents with intelligent, data-driven tools for effective education management. The platform consolidates all critical school functions—including academic planning, student administration, financial management, scheduling, and analytics—into a centralized system that streamlines operations and enhances strategic decision-making.
                 </p>
-              </div>
-              <div
-                className="row g-4 "
-                data-aos="fade-down"
-                data-aos-delay="200"
-                data-aos-duration="1500"
-              >
-                <div className="col-md-6">
-                  <div className="about__right-item">
-                    <div className="icon">
-                      <Image src={Four} alt="icon" priority />
-                    </div>
-                    <div className="content">
-                      <h4 className="mb-1">Best Services</h4>
-                      <p>Scelerisque augue the consequat sodales</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="about__right-item">
-                    <div className="icon">
-                      <Image src={Five} alt="icon" priority />
-                    </div>
-                    <div className="content">
-                      <h4 className="mb-1">24/7 Call Support</h4>
-                      <p>Scelerisque augue the consequat sodales</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="about__info mt-50 "
-                data-aos="fade-down"
-                data-aos-delay="400"
-                data-aos-duration="1500"
-              >
-                <Link href="about" className="btn-one">
-                  Explore More{" "}
-                  <i className="fa-regular fa-arrow-right-long"></i>
-                </Link>
-                <div className="d-flex gap-2 align-items-center">
-                  <Image src={Six} alt="Image" priority />
-                  <div className="info">
-                    <h5>Ronald Richards</h5>
-                    <span className="sm-font">Co, Founder</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

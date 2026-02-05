@@ -3,10 +3,10 @@ import Image from "next/image";
 import One from "@/public/images/shape/about-two-shape.png";
 import Two from "@/public/images/shape/about-two-dot.png";
 import Three from "@/public/images/shape/about-circle-helper.png";
-import Four from "@/public/images/about/about-two-image1.jpg";
-import Five from "@/public/images/about/about-two-image2.png";
-import Six from "@/public/images/shape/about-two-circle.png";
-import Seven from "@/public/images/about/singature.png";
+import Four from "@/public/images/about/Aboutus.png"; 
+import Five from "@/public/images/about/aboutus1.jpg";
+import Six from "@/public/images/shape/aboutus1.jpg";
+import Seven from "@/public/images/about/aboutus1.jpg";
 
 const AboutTwo = () => {
   return (
@@ -31,28 +31,42 @@ const AboutTwo = () => {
                   priority
                 />
               </div>
-              <div className="shape-halper">
+              {/* <div className="shape-halper">
                 <Image
                   className="sway__animation"
                   src={Three}
                   alt="shape"
                   priority
                 />
-              </div>
+              </div> */}
               <div className="image big-image">
-                <Image src={Four} alt="Image" priority />
+                <Image
+                  src={Four}
+                  alt="About INNSIS"
+                  priority
+                  width={486}
+                  height={709}
+                />
               </div>
               <div className="image sm-image">
-                <Image src={Five} alt="Image" priority />
-              </div>
-              <div className="circle-shape">
                 <Image
-                  className="animation__rotate"
-                  src={Six}
+                  src={Five}
+                  alt="About INNSIS"
+                  priority
+                  width={295}
+                  height={338}
+                />
+              </div>
+              {/* <div className="">
+                <Image
+                  // className="animation"
+                   width={386}
+                  height={509}
+                  src={Four}
                   alt="shape"
                   priority
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-xl-6">
@@ -71,7 +85,7 @@ const AboutTwo = () => {
                 data-aos-delay="200"
                 data-aos-duration="1500"
               >
-                About InnSIS
+                About INNSIS
               </h2>
               <p
                 className=""
@@ -79,7 +93,7 @@ const AboutTwo = () => {
                 data-aos-delay="400"
                 data-aos-duration="1500"
               >
-                InnSIS is a modern Student Information System designed to help educational institutions streamline operations, enhance communication, and automate administrative workflows. Built with a focus on usability and efficiency, InnSIS empowers schools, colleges, and training centers to manage the entire student lifecycle from one unified platform.
+                INNSIS is a modern Student Information System designed to help educational institutions streamline operations, enhance communication, and automate administrative workflows. Built with a focus on usability and efficiency, INNSIS empowers schools, colleges, and training centers to manage the entire student lifecycle from one unified platform.
               </p>
             </div>
             <div

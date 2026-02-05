@@ -6,7 +6,6 @@ import About from "@/components/containers/HomeOne/About";
 import CounterSection from "@/components/containers/HomeOne/CounterSection";
 import Case from "@/components/containers/HomeOne/Case";
 import Offer from "@/components/containers/HomeOne/Offer";
-import Brand from "@/components/containers/HomeOne/Brand";
 import Process from "@/components/containers/HomeOne/Process";
 import Testimonial from "@/components/containers/HomeOne/Testimonial";
 import Blog from "@/components/containers/HomeOne/Blog";
@@ -25,7 +24,6 @@ const page = () => {
       <CounterSection />
       <Case />
       <Offer />
-      <Brand />
       <Process />
       <Testimonial />
       <Blog />

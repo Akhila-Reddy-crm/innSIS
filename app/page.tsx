@@ -8,7 +8,6 @@ import CTA from "@/components/containers/HomeOne/CTA";
 import CounterSection from "@/components/containers/HomeOne/CounterSection";
 import Case from "@/components/containers/HomeOne/Case";
 import Offer from "@/components/containers/HomeOne/Offer";
-import Brand from "@/components/containers/HomeOne/Brand";
 import Process from "@/components/containers/HomeOne/Process";
 import Testimonial from "@/components/containers/HomeOne/Testimonial";
 import Blog from "@/components/containers/HomeOne/Blog";
@@ -22,15 +21,11 @@ const page = () => {
       <TopHeader />
       <Header />
       <Banner />
-      {/* <KeyBenefits /> */}
       <Service />
       <About />
       <CTA />
-      <CounterSection />
       <Case />
       <Offer />
-      <Brand />
-      {/* <Process /> */}
       <Testimonial />
       <Blog />
       <Footer />

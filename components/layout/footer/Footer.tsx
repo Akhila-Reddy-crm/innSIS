@@ -5,7 +5,7 @@ import Two from "@/public/images/shape/footer-solid-left.png";
 import Three from "@/public/images/shape/footer-regular-right.png";
 import Four from "@/public/images/shape/footer-solid-right.png";
 import Five from "@/public/images/shape/footer-shadow-shape.png";
-import Logo from "@/public/images/logo/logo.svg";
+import Logo from "@/public/images/logo/logo.jpg";
 
 const Footer = () => {
   return (
@@ -54,10 +54,10 @@ const Footer = () => {
             data-aos-duration="1500"
           >
             <Link href="/" className="logo mb-30">
-              <Image src={Logo} alt="innSIS logo" priority />
+              <Image src={Logo} alt="INNSIS logo" priority />
             </Link>
             <p>
-              InnSIS - Software Development & IT Solutions for your business needs.
+              INNSIS - A Smarter Student Information System.
             </p>
             <div className="social-icon">
               <Link href="/" aria-label="Facebook">
@@ -136,7 +136,7 @@ const Footer = () => {
         <div className="container">
           <div className="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
             <p data-aos="fade-down" data-aos-delay="0" data-aos-duration="1500">
-              &copy; All Copyright 2024 by <Link href="/">InnSIS</Link>
+              &copy; All Copyright 2024 by <Link href="/">INNSIS</Link>
             </p>
             <ul
               className="d-flex align-items-center flex-wrap gap-4 "

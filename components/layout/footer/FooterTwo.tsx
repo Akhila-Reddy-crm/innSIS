@@ -5,7 +5,7 @@ import Two from "@/public/images/shape/footer-solid-left.png";
 import Three from "@/public/images/shape/footer-regular-right.png";
 import Four from "@/public/images/shape/footer-solid-right.png";
 import Five from "@/public/images/shape/footer-shadow-shape.png";
-import Logo from "@/public/images/logo/logo.svg";
+import Logo from "@/public/images/logo/logo.jpg";
 
 const FooterTwo = () => {
   return (
@@ -126,7 +126,7 @@ const FooterTwo = () => {
               <li>
                 <Link href="about">
                   <i className="fa-regular fa-angles-right me-1"></i> About
-                  Gratech
+                  INNSIS
                 </Link>
               </li>
               <li>
@@ -187,7 +187,7 @@ const FooterTwo = () => {
         <div className="container">
           <div className="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
             <p data-aos="fade-down" data-aos-delay="0" data-aos-duration="1500">
-              &copy; All Copyright 2024 by <Link href="/">Gratech</Link>
+              &copy; All Copyright 2024 by <Link href="/">INNSIS</Link>
             </p>
             <ul
               className="d-flex align-items-center gap-4 "

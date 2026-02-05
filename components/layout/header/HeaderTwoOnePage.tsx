@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/images/logo/logo-light.svg";
+import logo from "@/public/images/logo/logo-light.jpg";
 import one from "@/public/images/menu/home1-image.jpg";
 import two from "@/public/images/menu/home2-image.jpg";
 import three from "@/public/images/menu/home3-image.jpg";

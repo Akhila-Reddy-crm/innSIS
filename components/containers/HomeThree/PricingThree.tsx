@@ -249,7 +249,7 @@ const PricingThree = () => {
           }}>
             <h3 className="text-white mb-20">Free Trial Available</h3>
             <p className="text-white mb-30">
-              Try InnSIS free for 30 days. No credit card required. Experience all features and see how InnSIS can transform your school management.
+              Try INNSIS free for 30 days. No credit card required. Experience all features and see how INNSIS can transform your school management.
             </p>
             <Link href="contact" className="btn-one" style={{ background: "white", color: "#3C72FC" }}>
               Start Free Trial <i className="fa-regular fa-arrow-right-long"></i>

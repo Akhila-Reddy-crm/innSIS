@@ -3,8 +3,8 @@ import "@/public/styles/style.scss";
 import InitAnimations from "@/components/layout/InitAnimations";
 
 export const metadata: Metadata = {
-  title: "InnSIS | Software Development & IT Solutions",
-  description: "InnSIS - Software Development & IT Solutions",
+  title: "INNSIS | A Smarter Student Information System",
+  description: "INNSIS - A Smarter Student Information System",
   keywords: [
     "Software",
     "IT",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "InnSIS",
+      name: "INNSIS",
       url: "#",
     },
   ],

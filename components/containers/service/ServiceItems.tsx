@@ -86,7 +86,7 @@ const ServiceItems = () => {
                 >
                   {/* Chevron */}
                   <span
-                    className={`fs-5 transition-transform ${
+                    className={`fs-5 ${
                       isOpen ? "text-primary" : "text-muted"
                     }`}
                   >
@@ -105,13 +105,23 @@ const ServiceItems = () => {
 
                 {/* Content */}
                 {isOpen && (
-                  <div className="px-5 pb-4 text-muted">
-                    <p className="mb-15">{section.description}</p>
+                  <div className="px-5 pb-4">
+                    {/* Highlighted Description */}
+                    <div className="mb-3 p-3 bg-light border-start border-3 border-primary rounded">
+                      <p className="mb-0 fw-medium text-dark">
+                        {section.description}
+                      </p>
+                    </div>
 
-                    <ul className="ps-3">
-                      {section.benefits.map((benefit) => (
-                        <li key={benefit} className="mb-10">
-                          {benefit}
+                    {/* Benefits */}
+                    <ul className="ps-0 list-unstyled">
+                      {section.benefits.map((benefit, i) => (
+                        <li
+                          key={i}
+                          className="d-flex align-items-start gap-2 mb-2 text-muted"
+                        >
+                          <span className="text-primary fw-bold">•</span>
+                          <span>{benefit}</span>
                         </li>
                       ))}
                     </ul>

@@ -33,7 +33,7 @@ const CTA = () => {
             }}>
               <h2 className="mb-20 text-white">Book a Demo!</h2>
               <p className="mb-30 text-white">
-                See InnSIS in action. Schedule a personalized demonstration tailored to your needs.
+                See INNSIS in action. Schedule a personalized demonstration tailored to your needs.
               </p>
               <Link href="contact" className="btn-one" style={{ background: "white", color: "#3C72FC" }}>
                 Request a Demo <i className="fa-regular fa-arrow-right-long"></i>
