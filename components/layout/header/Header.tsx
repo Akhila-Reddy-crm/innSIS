@@ -79,13 +79,13 @@ const Header = () => {
                     <Link href="/solution">Solution</Link>
                   </li>
                   <li>
-                    <Link href="pricing">Pricing</Link>
+                    <Link href="/pricing">Pricing</Link>
                   </li>
                   <li>
-                    <Link href="about">About Us</Link>
+                    <Link href="/about">About Us</Link>
                   </li>
                   <li>
-                    <Link href="contact">Support/Contact Us</Link>
+                    <Link href="/contact">Support/Contact Us</Link>
                   </li>
                   <li className="ml-20 d-none d-lg-block">
                     <a className="search-trigger" onClick={handleSearch}>

@@ -93,17 +93,17 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="pricing">
+                <Link href="/pricing">
                   <i className="fa-regular fa-angles-right me-1"></i> Pricing
                 </Link>
               </li>
               <li>
-                <Link href="about">
+                <Link href="/about">
                   <i className="fa-regular fa-angles-right me-1"></i> About Us
                 </Link>
               </li>
               <li>
-                <Link href="contact">
+                <Link href="/contact">
                   <i className="fa-regular fa-angles-right me-1"></i> Support/Contact Us
                 </Link>
               </li>
