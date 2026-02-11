@@ -2,10 +2,10 @@
   // Font family ***
   --kumbh: "Kumbh Sans", sans-serif;
 
-  // Colors ***
-  --primary-color: #3c72fc;
-  --primary10: rgba(60, 114, 252, 0.1);
-  --gradient-bg: linear-gradient(90deg, #3c72fc -10.59%, #00060c 300.59%);
+  // Colors *** (primary blue matched to logo)
+  --primary-color: #0046a8;
+  --primary10: rgba(0, 70, 168, 0.1);
+  --gradient-bg: linear-gradient(90deg, #0046a8 -10.59%, #00060c 300.59%);
   --secondary-color: #0f0d1d;
   --main-bg: #ffffff;
   --sub-bg: #f3f7fb;
@@ -29,9 +29,9 @@
 
 // Dark mood collor area start here ***
 .darken {
-  --primary-color: #3c72fc;
-  --primary10: rgba(60, 114, 252, 0.1);
-  --gradient-bg: linear-gradient(90deg, #3c72fc -10.59%, #00060c 300.59%);
+  --primary-color: #0046a8;
+  --primary10: rgba(0, 70, 168, 0.1);
+  --gradient-bg: linear-gradient(90deg, #0046a8 -10.59%, #00060c 300.59%);
   --secondary-color: #0f0d1d;
   --main-bg: #151327;
   --sub-bg: #16142c;
@@ -49,9 +49,9 @@
 
 // Overight the Dark mood collor area stat here ***
 .darken .light-area {
-  --primary-color: #3c72fc;
-  --primary10: rgba(60, 114, 252, 0.1);
-  --gradient-bg: linear-gradient(90deg, #3c72fc -10.59%, #00060c 300.59%);
+  --primary-color: #0046a8;
+  --primary10: rgba(0, 70, 168, 0.1);
+  --gradient-bg: linear-gradient(90deg, #0046a8 -10.59%, #00060c 300.59%);
   --secondary-color: #0f0d1d;
   --main-bg: #ffffff;
   --sub-bg: #f3f7fb;

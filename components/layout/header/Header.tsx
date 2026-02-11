@@ -2,8 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/images/logo/logo-light.jpg";
-import OffCanvasMenu from "./OffCanvasMenu";
+import logo from "@/public/images/logo/logo-transparent.png";
 
 const Header = () => {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
@@ -67,25 +66,40 @@ const Header = () => {
         <div className="container header__container">
           <div className="header__main">
             <Link href="/" className="logo">
-        <Image src={logo} alt="INNSIS logo" />
+        <Image src={logo} alt="INNSIS logo" style={{height:"15vh"}}/>
             </Link>
             <div className="main-menu d-none d-lg-block">
               <nav>
                 <ul>
                   <li>
-                    <Link href="/service">Features</Link>
+                    <a href="#features" onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                    }}>Features</a>
+                  </li>
+                   <li>
+                    <a href="#about-section" onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }}>About Us</a>
                   </li>
                   <li>
-                    <Link href="/solution">Solution</Link>
+                    <a href="#institutions" onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('institutions')?.scrollIntoView({ behavior: 'smooth' });
+                    }}>Our Institutions</a>
                   </li>
                   <li>
-                    <Link href="/pricing">Pricing</Link>
+                    <a href="#impact-section" onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('impact-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }}>Our Impact</a>
                   </li>
                   <li>
-                    <Link href="/about">About Us</Link>
-                  </li>
-                  <li>
-                    <Link href="/contact">Support/Contact Us</Link>
+                    <a href="#contact-section" onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }}>Contact Us</a>
                   </li>
                   <li className="ml-20 d-none d-lg-block">
                     <a className="search-trigger" onClick={handleSearch}>
@@ -114,12 +128,16 @@ const Header = () => {
               </nav>
             </div>
             <div className="d-none d-lg-inline-block" style={{ display: "flex", gap: "15px", alignItems: "center" }}>
-              <Link href="contact" className="btn-one" style={{ marginRight: "10px" }}>
-                Login
-              </Link>
-              <Link href="contact" className="btn-one">
+              <a
+                href="#contact-section"
+                className="btn-one"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Get a Demo <i className="fa-regular fa-arrow-right-long"></i>
-              </Link>
+              </a>
             </div>
             <div className="bars d-block d-lg-none">
               <i
@@ -131,10 +149,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <OffCanvasMenu
-        toggleMenu={toggleMenu}
-        handleToggleMenu={handleToggleMenu}
-      />
 
       <div
         className={(searchToggle ? " open" : " ") + " search-wrap"}

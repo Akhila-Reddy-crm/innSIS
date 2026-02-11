@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
-import "swiper/swiper-bundle.css";
 import Line from "@/public/images/banner/banner-line.png";
 import LineTwo from "@/public/images/banner/banner-right-line3.png";
 import LineThree from "@/public/images/banner/banner-right-line4.png";
@@ -23,7 +22,7 @@ const Banner = () => {
       <div className="banner__line">
         <Image className="sway__animation" src={Line} alt="shape" priority />
       </div>
-      <div className=" banner__slider">
+     <div className=" banner__slider" style={{maxHeight:"90vh"}}>
         <Swiper
           slidesPerView={1}
           spaceBetween={0}
@@ -113,14 +112,14 @@ const Banner = () => {
                 className="banner__right-line4"
                 data-animation="slideInRight"
                 data-duration="2s"
-                data-delay=".3s"
+                data-delay=".1s"
               >
                 <Image src={Nine} alt="shape" priority />
               </div>
               <div
                 className="slide-bg"
                 style={{
-                  backgroundImage: "url(https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop&auto=format)",
+                   backgroundImage: "url(https://images.pexels.com/photos/6684506/pexels-photo-6684506.jpeg)",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -174,9 +173,7 @@ const Banner = () => {
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    Flexible, Secure. Built for schools of all sizes.
-                    <br />
-                    Track students, grades, attendance, payment, communication, and more—all in one secure platform.
+                 One unified platform to manage admissions, academics, attendance, communication, reporting, and more.
                   </p>
                   <div className="d-flex gap-3 mt-60 flex-wrap">
                     <Link
@@ -281,7 +278,7 @@ const Banner = () => {
               <div
                 className="slide-bg"
                 style={{
-                  backgroundImage: "url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&h=1080&fit=crop&auto=format)",
+                  backgroundImage: "url(https://images.pexels.com/photos/7972743/pexels-photo-7972743.jpeg)",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -327,7 +324,7 @@ const Banner = () => {
                     data-delay=".5s"
                     className="text-white"
                   >
-                    A Smarter Way to Manage Student Information
+                   Built for All Institution Types
                   </h1>
                   <p
                     data-animation="slideInRight"
@@ -335,9 +332,7 @@ const Banner = () => {
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    Flexible, Secure. Built for schools of all sizes.
-                    <br />
-                    Track students, grades, attendance, payment, communication, and more—all in one secure platform.
+                    Supporting K-12 schools, colleges, universities, and private schools with secure portals, real-time insights, and tools designed to scale with your institution.
                   </p>
                   <div className="d-flex gap-3 mt-60 flex-wrap">
                     <Link
@@ -442,7 +437,7 @@ const Banner = () => {
               <div
                 className="slide-bg"
                 style={{
-                  backgroundImage: "url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&h=1080&fit=crop&auto=format)",
+                  backgroundImage: "url(https://images.pexels.com/photos/6684506/pexels-photo-6684506.jpeg)",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -488,7 +483,7 @@ const Banner = () => {
                     data-delay=".5s"
                     className="text-white"
                   >
-                    A Smarter Way to Manage Student Information
+                  Simplify Operations. Improve Outcomes
                   </h1>
                   <p
                     data-animation="slideInRight"
@@ -496,9 +491,7 @@ const Banner = () => {
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    Flexible, Secure. Built for schools of all sizes.
-                    <br />
-                    Track students, grades, attendance, payment, communication, and more—all in one secure platform.
+                  Automate workflows, reduce manual work, and make data-driven decisions with confidence.
                   </p>
                   <div className="d-flex gap-3 mt-60 flex-wrap">
                     <Link
@@ -527,7 +520,7 @@ const Banner = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-      </div>
+      </div> 
       <div className="banner__dot-wrp">
         <div className="dot-light banner__dot"></div>
       </div>

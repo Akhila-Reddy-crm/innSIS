@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import One from "@/public/images/shape/footer-regular-left.png";
@@ -5,7 +6,7 @@ import Two from "@/public/images/shape/footer-solid-left.png";
 import Three from "@/public/images/shape/footer-regular-right.png";
 import Four from "@/public/images/shape/footer-solid-right.png";
 import Five from "@/public/images/shape/footer-shadow-shape.png";
-import Logo from "@/public/images/logo/logo.jpg";
+import Logo from "@/public/images/logo/logo-transparent.png";
 
 const Footer = () => {
   return (
@@ -54,19 +55,16 @@ const Footer = () => {
             data-aos-duration="1500"
           >
             <Link href="/" className="logo mb-30">
-              <Image src={Logo} alt="INNSIS logo" priority />
+              <Image src={Logo} alt="INNSIS logo" priority style={{maxHeight:"10vh"}}/>
             </Link>
             <p>
-              INNSIS - A Smarter Student Information System.
+              INNSIS - Innovation. Insight. Impact.
             </p>
             <div className="social-icon">
-              <Link href="/" aria-label="Facebook">
-                <i className="fa-brands fa-facebook-f"></i>
+              <Link href="https://www.instagram.com/innsis_education/  " aria-label="Facebook">
+                <i className="fa-brands fa-instagram"></i>
               </Link>
-              <Link href="/" aria-label="Twitter">
-                <i className="fa-brands fa-twitter"></i>
-              </Link>
-              <Link href="/" aria-label="LinkedIn">
+              <Link href="https://www.linkedin.com/company/innsis/" aria-label="LinkedIn">
                 <i className="fa-brands fa-linkedin-in"></i>
               </Link>
               <Link href="/" aria-label="YouTube">
@@ -83,29 +81,59 @@ const Footer = () => {
             <h3 className="footer-title">Quick Links</h3>
             <ul>
               <li>
-                <Link href="/service">
+                <a
+                  href="#features"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   <i className="fa-regular fa-angles-right me-1"></i> Features
-                </Link>
+                </a>
               </li>
-              <li>
-                <Link href="/solution">
-                  <i className="fa-regular fa-angles-right me-1"></i> Solution
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing">
-                  <i className="fa-regular fa-angles-right me-1"></i> Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/about">
+               <li>
+                <a
+                  href="#about-section"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   <i className="fa-regular fa-angles-right me-1"></i> About Us
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/contact">
-                  <i className="fa-regular fa-angles-right me-1"></i> Support/Contact Us
-                </Link>
+                <a
+                  href="#institutions"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('institutions')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <i className="fa-regular fa-angles-right me-1"></i> Our Institutions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#impact-section"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('impact-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <i className="fa-regular fa-angles-right me-1"></i> Our Impact
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact-section"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <i className="fa-regular fa-angles-right me-1"></i> Contact Us
+                </a>
               </li>
             </ul>
           </div>
@@ -118,37 +146,21 @@ const Footer = () => {
           >
             <h3 className="footer-title">Contact Us</h3>
             <p className="mb-20">
-              4517 Washington Ave. Manchester, Kentucky 39495
+              Head Office
+              <br />
+              103-2727 Steeles Ave West Unit 727
+              <br />
+              Toronto, Ontario, M3J 3G9
+              <br />
+              Canada
             </p>
             <ul className="footer-contact">
               <li>
                 <i className="fa-duotone fa-phone"></i>
                 <div className="info">
                   <h5>Phone Call:</h5>
-                  <p>208-6666-0112, 308-5555-0113</p>
+                  <p>+1 (289) 233 2976</p>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="footer__copyright">
-        <div className="container">
-          <div className="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
-            <p data-aos="fade-down" data-aos-delay="0" data-aos-duration="1500">
-              &copy; All Copyright 2024 by <Link href="/">INNSIS</Link>
-            </p>
-            <ul
-              className="d-flex align-items-center flex-wrap gap-4 "
-              data-aos="fade-down"
-              data-aos-delay="200"
-              data-aos-duration="1500"
-            >
-              <li>
-                <Link href="/">Terms of Service</Link>
-              </li>
-              <li>
-                <Link href="/">Privacy Policy</Link>
               </li>
             </ul>
           </div>

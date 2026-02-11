@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "@/public/styles/style.scss";
 import InitAnimations from "@/components/layout/InitAnimations";
+import "@/public/styles/style.scss";
 
 export const metadata: Metadata = {
-  title: "INNSIS | A Smarter Student Information System",
-  description: "INNSIS - A Smarter Student Information System",
+  title: "INNSIS | Innovation. Insight. Impact",
+  description: "INNSIS - Innovation. Insight. Impact",
   keywords: [
     "Software",
     "IT",

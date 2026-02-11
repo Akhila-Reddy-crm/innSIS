@@ -17,7 +17,11 @@ const About = () => {
 
   return (
     <>
-      <section className="about-area sub-bg pt-120" id="about-section">
+      <section
+        className="about-area sub-bg pt-20"
+        id="about-section"
+        style={{ paddingBottom: "40px" }}
+      >
         {/* <div
           className="about__shape "
           data-aos="fade-left"
@@ -54,7 +58,7 @@ const About = () => {
               </div>
             </div>
             <div className="col-xl-6">
-              <div className="section-header mb-40">
+              <div className="section-header">
                 <h5
                   className=""
                   data-aos="fade-up"
@@ -70,7 +74,7 @@ const About = () => {
                   data-aos-delay="200"
                   data-aos-duration="1500"
                 >
-                  Fully Integrated School Information and Management System
+                  A Fully Integrated Student Information System
                 </h2>
                 <p
                   className=""
@@ -78,8 +82,36 @@ const About = () => {
                   data-aos-delay="400"
                   data-aos-duration="1500"
                 >
-                  INNSIS is a fully integrated School Information and Management System designed to support administrators, educators, students, and parents with intelligent, data-driven tools for effective education management. The platform consolidates all critical school functions—including academic planning, student administration, financial management, scheduling, and analytics—into a centralized system that streamlines operations and enhances strategic decision-making.
+                  INNSIS is a modern, all-in-one Student Information System designed to help educational institutions manage the complete student lifecycle with clarity and efficiency. From admissions through graduation, INNSIS brings academic, administrative, and financial processes together into one secure, centralized platform.
                 </p>
+                <p
+                  className=""
+                  data-aos="fade-up"
+                  data-aos-delay="500"
+                  data-aos-duration="1500"
+                >
+                  <strong>With INNSIS, institutions can:</strong>
+                </p>
+                <ul
+                  className="mt-2"
+                  style={{ listStyle: "disc", paddingLeft: "20px" }}
+                  data-aos="fade-up"
+                  data-aos-delay="600"
+                  data-aos-duration="1500"
+                >
+                  <li>
+                    <strong>Centralized student information</strong> across admissions, academics, attendance, and finance
+                  </li>
+                  <li>
+                    <strong>Reduce administrative complexity</strong> through intelligent automation and streamlined workflows
+                  </li>
+                  <li>
+                    <strong>Gain real-time visibility</strong> into academic performance, enrollment, and operations
+                  </li>
+                  <li>
+                    <strong>Support every stakeholder</strong> with role-based portals for students, faculty, parents, and administrators
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

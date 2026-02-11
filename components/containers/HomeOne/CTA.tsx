@@ -1,43 +1,41 @@
-import Link from "next/link";
+"use client";
 
 const CTA = () => {
   return (
-    <section className="cta-area pt-120 pb-120" id="cta-section">
+    <section className="cta-area pt-25 pb-25" id="cta-section">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8" data-aos="fade-up" data-aos-duration="1500">
-            <div className="cta__item text-center" style={{ 
-              background: "linear-gradient(135deg, #3C72FC 0%, #2B5BD6 100%)", 
-              padding: "60px 40px", 
-              borderRadius: "20px",
-              color: "white",
-              marginBottom: "30px"
-            }}>
-              <h2 className="mb-20 text-white">Let&apos;s Connect!</h2>
-              <p className="mb-30 text-white">
-                Have questions or want to learn more? Get in touch with our team.
+            <div
+              className="cta__item text-center"
+              style={{
+                background: "linear-gradient(135deg, #0046A8 0%, #002c70 100%)",
+                padding: "20px 28px",
+                borderRadius: "16px",
+                color: "white",
+              }}
+            >
+              <h2 className="mb-2 text-white">Let&apos;s Connect</h2>
+              <p className="mb-20 text-white">
+                Have questions or want to see INNSIS in action? Our team is ready to help with a personalized demo.
               </p>
-              <Link href="contact" className="btn-one" style={{ background: "white", color: "#3C72FC" }}>
-                Contact Us <i className="fa-regular fa-arrow-right-long"></i>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-lg-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500">
-            <div className="cta__item text-center" style={{ 
-              background: "linear-gradient(135deg, #2B5BD6 0%, #3C72FC 100%)", 
-              padding: "60px 40px", 
-              borderRadius: "20px",
-              color: "white"
-            }}>
-              <h2 className="mb-20 text-white">Book a Demo!</h2>
-              <p className="mb-30 text-white">
-                See INNSIS in action. Schedule a personalized demonstration tailored to your needs.
-              </p>
-              <Link href="contact" className="btn-one" style={{ background: "white", color: "#3C72FC" }}>
-                Request a Demo <i className="fa-regular fa-arrow-right-long"></i>
-              </Link>
+              <div className="d-flex flex-wrap justify-content-center">
+                <a
+                  href="#contact-section"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="btn-one"
+                  style={{
+                    background: "transparent",
+                    border: "1px solid #ffffff",
+                    color: "#ffffff",
+                  }}
+                >
+                  Request a Demo <i className="fa-regular fa-arrow-right-long"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
