@@ -78,7 +78,7 @@ const Offer = () => {
               </div>
         <div className="row g-4">
           {institutions.map((institution, index) => (
-            <div
+             <div
               key={institution.id}
               className="col-lg-4 col-md-6"
               data-aos="fade-up"
@@ -117,14 +117,14 @@ const Offer = () => {
                     padding: "20px",
                     background: "rgba(0, 70, 168, 0.95)",
                     borderRadius: "0 0 12px 12px",
-                    minHeight: "190px",
+                    minHeight: "150px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                   }}
                 >
                   <h4
-                    className="text-white mt-0 mb-15"
+                    className="text-white"
                     style={{ fontSize: "20px", fontWeight: "600" }}
                   >
                     {institution.title}

@@ -71,30 +71,7 @@
     position: relative;
 	transition: var(--transition);
     &::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 30%;
-      background: linear-gradient(270deg, #3c72fc 6.32%, #00060c 216.42%);
-      height: 100%;
-      content: "";
-      z-index: -1;
-      clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
-      @include breakpoint(max-xl) {
-        width: 25%;
-      }
-      @include breakpoint(max-lg) {
-        width: 30%;
-      }
-      @include breakpoint(max-md) {
-        width: 40%;
-      }
-      @include breakpoint(max-sm) {
-        width: 50%;
-      }
-      @include breakpoint(max-xxsmall) {
-        width: 70%;
-      }
+      display: none;
     }
     &.menu-fixed {
       position: fixed;
@@ -114,10 +91,12 @@
   }
   &__main {
     @include justify-wrp;
+    flex-wrap: nowrap;
     .main-menu {
       ul {
         @include flex;
-        gap: 35px;
+        gap: 20px;
+        white-space: nowrap;
         li {
           position: relative;
           &.has-megamenu {
@@ -132,7 +111,9 @@
           }
           a {
             font-weight: 600;
-            padding: 40px 0;
+            padding: 20px 0;
+            display: inline-block;
+            white-space: nowrap;
             i {
               font-size: 12px;
               transition: var(--transition);
@@ -239,6 +220,27 @@
             }
           }
         }
+      }
+      margin-left: 16%;
+      @include breakpoint(max-xl) {
+        margin-left: 13%;
+      }
+      @include breakpoint(max-lg) {
+        margin-left: 0;
+      }
+    }
+    .header__actions {
+      margin-left: auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      .btn-one {
+        padding: 8px 14px;
+        font-size: 14px;
+        min-width: 110px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
     }
     @include breakpoint(max-lg) {

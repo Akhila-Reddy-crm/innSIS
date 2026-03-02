@@ -4,10 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import ModalVideo from "react-modal-video";
 import Line from "@/public/images/shape/about-line.png";
-// import One from "@/public/images/about/Aboutus.png"; 
-import Two from "@/public/images/logo/about.png";
+import One from "@/public/images/logo/about.png";
+import Two from "@/public/images/about/aboutus1.jpg";
 import Circle from "@/public/images/shape/about-circle.png";
 import Three from "@/public/images/icon/section-title.png";
+import Four from "@/public/images/icon/about-icon1.png";
+import Five from "@/public/images/icon/about-icon2.png";
+import Six from "@/public/images/about/about-info.png";
 
 const About = () => {
   const [isOpen, setOpen] = useState(false);
@@ -34,24 +37,12 @@ const About = () => {
               data-aos="fade-right"
               data-aos-delay="200"
               data-aos-duration="1500"
+              style={{marginTop:'7rem'}}
             >
               <div className="about__left-item">
-                {/* <div className="image big-image">
+                <div className="image big-image">
                   <Image src={One} alt="Image" priority />
-                </div> */}
-                <div className="image sm-image">
-                  <div className="video__btn-wrp">
-                    <div className="video-btn video-pulse">
-                      <a className="video-popup" onClick={() => setOpen(true)}>
-                        <i className="fa-solid fa-play"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <Image src={Two} alt="Image" priority />
                 </div>
-                {/* <div className="circle-shape">
-                  <Image src={Circle} alt="shape" priority />
-                </div> */}
               </div>
             </div>
             <div className="col-xl-6">
@@ -62,7 +53,7 @@ const About = () => {
                   data-aos-delay="0"
                   data-aos-duration="1500"
                 >
-                  {/* <Image className="me-1" src={Three} alt="icon" priority /> */}
+                  <Image className="me-1" src={Three} alt="icon" priority />
                   ABOUT INNSIS
                 </h5>
                 <h2

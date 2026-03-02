@@ -8,7 +8,6 @@ import Three from "@/public/images/shape/service-item-shape.png";
 import Four from "@/public/images/icon/service-icon1.png";
 import Five from "@/public/images/icon/service-icon2.png";
 import Six from "@/public/images/icon/service-icon3.png";
-import four from '@/public/images/menu/home4-image.jpg';
 
 const Service = () => {
   const [isOverviewOpen, setOverviewOpen] = useState(0);
@@ -203,7 +202,6 @@ const Service = () => {
                 className={
                   "service__item " + (isOverviewOpen === feature.id ? " active" : " ")
                 }
-                style={{ height: "320px", minHeight: "320px" }}
                 onMouseEnter={() => setOverviewOpen(feature.id)}
               >
                 <div className="service-shape">

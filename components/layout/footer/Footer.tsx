@@ -6,7 +6,7 @@ import Two from "@/public/images/shape/footer-solid-left.png";
 import Three from "@/public/images/shape/footer-regular-right.png";
 import Four from "@/public/images/shape/footer-solid-right.png";
 import Five from "@/public/images/shape/footer-shadow-shape.png";
-import Logo from "@/public/images/logo/logo-transparent.png";
+import Logo from "@/public/images/logo/logo-white.png";
 
 const Footer = () => {
   return (
@@ -61,13 +61,28 @@ const Footer = () => {
               INNSIS - Innovation. Insight. Impact.
             </p>
             <div className="social-icon">
-              <Link href="https://www.instagram.com/innsis_education/  " aria-label="Facebook">
+              <Link
+                href="https://www.instagram.com/innsis_education/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <i className="fa-brands fa-instagram"></i>
               </Link>
-              <Link href="https://www.linkedin.com/company/innsis/" aria-label="LinkedIn">
+              <Link
+                href="https://www.linkedin.com/company/innsis/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <i className="fa-brands fa-linkedin-in"></i>
               </Link>
-              <Link href="/" aria-label="YouTube">
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
                 <i className="fa-brands fa-youtube"></i>
               </Link>
             </div>
@@ -161,7 +176,7 @@ const Footer = () => {
                   <h5>Phone Call:</h5>
                   <p>+1 (289) 233 2976</p>
                 </div>
-              </li>
+            </li>
             </ul>
           </div>
         </div>

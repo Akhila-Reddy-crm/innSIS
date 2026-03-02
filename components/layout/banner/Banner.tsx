@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
-import Line from "@/public/images/banner/banner-line.png";
 import LineTwo from "@/public/images/banner/banner-right-line3.png";
 import LineThree from "@/public/images/banner/banner-right-line4.png";
 import One from "@/public/images/banner/banner-regular-left-shape.png";
@@ -19,9 +18,6 @@ import Nine from "@/public/images/banner/banner-right-line4.png";
 const Banner = () => {
   return (
     <section className="banner-area">
-      <div className="banner__line">
-        <Image className="sway__animation" src={Line} alt="shape" priority />
-      </div>
      <div className=" banner__slider" style={{maxHeight:"90vh"}}>
         <Swiper
           slidesPerView={1}
@@ -437,7 +433,7 @@ const Banner = () => {
               <div
                 className="slide-bg"
                 style={{
-                  backgroundImage: "url(https://images.pexels.com/photos/6684506/pexels-photo-6684506.jpeg)",
+                  backgroundImage: "url(https://images.pexels.com/photos/5905569/pexels-photo-5905569.jpeg)",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

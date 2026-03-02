@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/images/logo/logo-transparent.png";
+import logo from "@/public/images/logo/logo-blue.png";
 
 const Header = () => {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
@@ -127,7 +127,7 @@ const Header = () => {
                 </ul>
               </nav>
             </div>
-            <div className="d-none d-lg-inline-block" style={{ display: "flex", gap: "15px", alignItems: "center" }}>
+            <div className="d-none d-lg-flex" style={{ display: "flex", gap: "15px", alignItems: "center" }}>
               <a
                 href="#contact-section"
                 className="btn-one"
@@ -135,8 +135,18 @@ const Header = () => {
                   e.preventDefault();
                   document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" });
                 }}
+                  style={{padding: '10px 10px'}}
               >
                 Get a Demo <i className="fa-regular fa-arrow-right-long"></i>
+              </a>
+              <a
+                href="https://1drv.ms/b/c/64f83ff70ae97eb7/IQC9J5QqHuMUQ62hlTxuFfa1ARQi0XsHiFYmt5NhszLvK-I?e=BIwcuj"
+                className="btn-one btn-small"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{padding: '10px 10px'}}
+              >
+                Get More Info <i className="fa-regular fa-arrow-right-long"></i>
               </a>
             </div>
             <div className="bars d-block d-lg-none">

@@ -63,17 +63,29 @@ const TopHeader = () => {
           </ul>
           <ul className="link-info">
             <li>
-              <Link href="https://www.instagram.com/innsis_education/">
+              <Link
+                href="https://www.instagram.com/innsis_education/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa-brands fa-instagram"></i>
               </Link>
             </li>
             <li>
-              <Link href="https://www.linkedin.com/company/innsis/ ">
+              <Link
+                href="https://www.linkedin.com/company/innsis/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa-brands fa-linkedin-in"></i>
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa-brands fa-youtube"></i>
               </Link>
             </li>
