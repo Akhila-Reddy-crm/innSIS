@@ -11,6 +11,19 @@
     transform: translate(-50%);
     z-index: 2;
   }
+  // Add pointer-events: none to all shape/line elements
+&__shape-left1,
+&__shape-left2,
+&__shape-left3,
+&__shape-right1,
+&__shape-right2,
+&__right-line1,
+&__right-line2,
+&__right-line3,
+&__right-line4 {
+  pointer-events: none;
+  z-index: 1;
+}
   &__shape-left1 {
     position: absolute;
     top: 30px;
@@ -63,9 +76,10 @@
     @extend .banner__right-line1;
   }
   &__content {
-    max-width: 770px;
+    max-width: 900px;
     padding: 140px 0;
     position: relative;
+    z-index: 2;
     @include breakpoint(max-lg) {
       padding: 100px 0;
     }
@@ -345,59 +359,12 @@
 }
 
 .banner-area {
-  .banner__content {
-    h4 {
-	  animation-delay: 0.3s;
-	  opacity: 0;
-	  visibility: hidden;
-    }
-
-    h1 {
-		animation-delay: 0.5s;
-		opacity: 0;
-		visibility: hidden;
-    }
-
-    p {
-		animation-delay: 0.7s;
-		opacity: 0;
-		visibility: hidden;
-    }
-
-    .btn-one {
-		animation-delay: 0.9s;
-		opacity: 0;
-		visibility: hidden;
-    }
+  .swiper-slide {
+    pointer-events: none;
   }
-
   .swiper-slide-active {
-    .banner__content {
-      h4,
-      h1,
-      p,
-      .btn-one {
-
-		animation-name: slideInRight;
-		animation-duration: 2s;
-		animation-fill-mode: both;
-      }
-    }
+    pointer-events: auto;
   }
-
-  @keyframes slideInRight {
-	0% {
-	-webkit-transform: translateX(100%);
-	transform: translateX(100%);
-	visibility: hidden;
-	opacity: 0;
-	}
-	100% {
-	-webkit-transform: translateX(0);
-	transform: translateX(0);
-	visibility: visible;
-	opacity: 1;
-	}
-	} 
 }
+
 // Banner area end here ***
