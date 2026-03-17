@@ -93,6 +93,7 @@ const Testimonial = () => {
       consent: formData.get("consent") === "on",
     };
 
+// https://innsiswebsitebackend.azurewebsites.net/api/send-contact
     try {
       const res = await fetch("https://innsiswebsitebackend.azurewebsites.net/api/send-contact", {
         method: "POST",

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { countries } from "@/utils/countries";
 
 interface ResellerModalProps {
@@ -9,6 +9,7 @@ interface ResellerModalProps {
 
 const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
   const [tab, setTab] = useState<"apply" | "login">("apply");
+  const appFormRef = useRef<HTMLFormElement | null>(null);
 
   const [appForm, setAppForm] = useState({
     firstName: "",
@@ -36,10 +37,54 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
     setLoginForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  const submitApp = (e: React.FormEvent) => {
+  const isAppFormValid = () => {
+    const formEl = appFormRef.current;
+    const browserValidity = formEl ? formEl.checkValidity() : false;
+    return browserValidity && appForm.agree;
+  };
+
+  const submitApp = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("application", appForm);
-    onClose();
+
+    if (!isAppFormValid()) {
+      alert("Please fill in all required fields and accept Privacy Policy & Terms before submitting.");
+      return;
+    }
+
+    try {
+      const res = await fetch("https://innsiswebsitebackend.azurewebsites.net/api/send-reseller", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(appForm),
+      });
+
+      if (!res.ok) {
+        alert("There was a problem submitting the reseller application. Please try again.");
+        return;
+      }
+
+      alert("Thank you! Your reseller application has been submitted. We will contact you soon.");
+      setAppForm({
+        firstName: "",
+        lastName: "",
+        businessEmail: "",
+        phone: "",
+        jobTitle: "",
+        companyName: "",
+        companyWebsite: "",
+        companySize: "",
+        country: "",
+        sector: "",
+        reason: "",
+        agree: false,
+      });
+      onClose();
+    } catch (error) {
+      console.error("Reseller form submit error", error);
+      alert("There was a problem submitting the reseller application. Please try again.");
+    }
   };
 
   const submitLogin = (e: React.FormEvent) => {
@@ -75,7 +120,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
         </div>
         <div className="reseller-content">
           {tab === "apply" ? (
-            <form onSubmit={submitApp}>
+            <form ref={appFormRef} onSubmit={submitApp}>
               <h4>Join the Partner Program</h4>
               <p style={{fontSize:'14px'}}>Fill in the form below — our team will review your application and respond within 2 business days.</p>
               <div className="row">
@@ -86,6 +131,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                     className="form-control"
                     value={appForm.firstName}
                     onChange={(e) => onAppChange("firstName", e.target.value)}
+                    required
                   />
                 </div>
                 <div className="col-md-6">
@@ -95,6 +141,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                     className="form-control"
                     value={appForm.lastName}
                     onChange={(e) => onAppChange("lastName", e.target.value)}
+                    required
                   />
                 </div>
               </div>
@@ -106,6 +153,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                     className="form-control"
                     value={appForm.businessEmail}
                     onChange={(e) => onAppChange("businessEmail", e.target.value)}
+                    required
                   />
                 </div>
                 <div className="col-md-6">
@@ -115,6 +163,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                     className="form-control"
                     value={appForm.phone}
                     onChange={(e) => onAppChange("phone", e.target.value)}
+                    required
                   />
                 </div>
               </div>
@@ -139,6 +188,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                     className="form-control"
                     value={appForm.companyName}
                     onChange={(e) => onAppChange("companyName", e.target.value)}
+                    required
                   />
                 </div>
                 <div className="col-md-6">
@@ -173,6 +223,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                     className="form-control"
                     value={appForm.country}
                     onChange={(e) => onAppChange("country", e.target.value)}
+                    required
                   >
                     <option value="">Select…</option>
                     {countries.map((c) => (
@@ -213,12 +264,22 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   id="agreeCheck"
                   checked={appForm.agree}
                   onChange={(e) => onAppChange("agree", e.target.checked)}
+                  required
                 />
                 <label className="form-check-label" htmlFor="agreeCheck">
                   I agree to INNSIS's <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>. My information will be used to evaluate my reseller application.
                 </label>
               </div>
-              <button type="submit" className="btn-one mt-4" style={{ width: "100%" }}>
+              <button
+                type="submit"
+                className="btn-one mt-4"
+                disabled={!isAppFormValid()}
+                style={{
+                  width: "100%",
+                  opacity: isAppFormValid() ? 1 : 0.6,
+                  cursor: isAppFormValid() ? "pointer" : "not-allowed",
+                }}
+              >
                 Submit Application <i className="fa-regular fa-arrow-right-long"></i>
               </button>
               <p className="mt-2 text-center">
@@ -239,6 +300,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   className="form-control"
                   value={loginForm.email}
                   onChange={(e) => onLoginChange("email", e.target.value)}
+                  required
                 />
               </div>
               <div className="mt-3">
@@ -248,6 +310,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   className="form-control"
                   value={loginForm.password}
                   onChange={(e) => onLoginChange("password", e.target.value)}
+                  required
                 />
               </div>
               <button type="submit" className="btn-one mt-4" style={{ width: "100%", background: "#0046A8", color: "#fff" }}>
