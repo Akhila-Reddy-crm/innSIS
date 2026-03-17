@@ -57,7 +57,7 @@ const TopHeader = () => {
               </svg>
 
               <Link href="/" className="ms-1">
-                +1 (289) 233 2976
+                +1 (844) 466 7471
               </Link>
             </li>
           </ul>

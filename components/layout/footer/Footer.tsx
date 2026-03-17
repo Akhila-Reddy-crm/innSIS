@@ -174,7 +174,7 @@ const Footer = () => {
                 <i className="fa-duotone fa-phone"></i>
                 <div className="info">
                   <h5>Phone Call:</h5>
-                  <p>+1 (289) 233 2976</p>
+                  <p>+1 (844) 466 7471</p>
                 </div>
             </li>
             </ul>

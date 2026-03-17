@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-
+import Image from "next/image";
 const Offer = () => {
   const institutions = [
     {
@@ -49,8 +49,8 @@ const Offer = () => {
     <section className="offer-area secondary-bg pt-30 pb-60" id="institutions">
       <div className="container">
         <div className="section-header text-center mb-60">
-            <h2
-              className="text-white mb-20"
+          <h2
+            className="text-white mb-20"
             data-aos="fade-up"
             data-aos-delay="200"
             data-aos-duration="1500"
@@ -75,10 +75,10 @@ const Offer = () => {
           >
             INNSIS is designed to adapt to the unique needs of different educational environments, whether you manage a small private school or a large multi-campus institution.
           </p>
-              </div>
+        </div>
         <div className="row g-4">
           {institutions.map((institution, index) => (
-             <div
+            <div
               key={institution.id}
               className="col-lg-4 col-md-6"
               data-aos="fade-up"
@@ -106,10 +106,12 @@ const Offer = () => {
                     borderRadius: "12px 12px 0 0",
                   }}
                 >
-                  <img
+                  <Image
                     src={institution.image}
                     alt={institution.title}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div

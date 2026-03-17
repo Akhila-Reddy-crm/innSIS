@@ -226,9 +226,10 @@
           }
         }
       }
-      margin-left: 16%;
+      /* shift navigation slightly left to make space for additional CTA */
+      margin-left: 12%;
       @include breakpoint(max-xl) {
-        margin-left: 13%;
+        margin-left: 10%;
       }
       @include breakpoint(max-lg) {
         margin-left: 0;

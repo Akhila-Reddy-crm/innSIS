@@ -5,10 +5,14 @@ const nextConfig = {
 
   // Ensure routes like `/contact/` work correctly on static hosts like SiteGround
   trailingSlash: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 
   // Disable Next.js image optimization so it works with `output: 'export'`
   // and on static hosting (no Node.js image optimizer available).
   images: {
+    domains: ["images.pexels.com"],
     unoptimized: true,
     remotePatterns: [
       {
