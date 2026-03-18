@@ -1,16 +1,9 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import ModalVideo from "react-modal-video";
-import Line from "@/public/images/shape/about-line.png";
 import One from "@/public/images/logo/about.png";
-import Two from "@/public/images/about/aboutus1.jpg";
-import Circle from "@/public/images/shape/about-circle.png";
 import Three from "@/public/images/icon/section-title.png";
-import Four from "@/public/images/icon/about-icon1.png";
-import Five from "@/public/images/icon/about-icon2.png";
-import Six from "@/public/images/about/about-info.png";
 
 const About = () => {
   const [isOpen, setOpen] = useState(false);
