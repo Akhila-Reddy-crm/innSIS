@@ -97,8 +97,35 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
   return (
     <div className={(open ? "open" : "") + " reseller-wrap"} onClick={onClose}>
       <div className="reseller-inner" onClick={(e) => e.stopPropagation()}>
-        <div className="reseller-header">
-          <div className="reseller-title">🎓 INNSIS / Reseller Portal</div>
+     <div className="reseller-header">
+  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    
+    <div className="reseller-title">
+      🎓 INNSIS / Reseller Portal
+    </div>
+
+    <button
+      onClick={onClose}
+      style={{
+        width: "36px",
+        height: "36px",
+        minWidth: "36px",
+        borderRadius: "50%",
+        border: "none",
+        background: "rgba(0,0,0,0.1)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        flexShrink: 0,
+      }}
+    >
+      <i className="fa-solid fa-xmark" style={{ fontSize: "16px" }} />
+    </button>
+
+  </div>
+
+        
           <div className="reseller-tabs">
             <span
               className={tab === "apply" ? "active" : ""}
@@ -113,10 +140,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
               <i className="fa-regular fa-arrow-right-long" style={{ marginRight: 6 }}></i> Partner Login
             </span>
           </div>
-          <i
-            className="fa-solid fa-xmark close"
-            onClick={onClose}
-          />
+     
         </div>
         <div className="reseller-content">
           {tab === "apply" ? (

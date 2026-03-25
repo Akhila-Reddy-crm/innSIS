@@ -19,6 +19,8 @@ type FormState = {
   jobTitle: string;
   schoolUrl: string;
   schoolType: string;
+  totalStudentsEnrolled: string;
+  totalFacultyMembers: string;
   questions: string;
   consent: boolean;
 };
@@ -34,6 +36,8 @@ const initialFormState: FormState = {
   jobTitle: "",
   schoolUrl: "",
   schoolType: "",
+  totalStudentsEnrolled: "",
+  totalFacultyMembers: "",
   questions: "",
   consent: false,
 };
@@ -89,6 +93,8 @@ const Testimonial = () => {
       jobTitle: formData.get("jobTitle") || "",
       schoolUrl: formData.get("schoolUrl") || "",
       schoolType: formData.get("schoolType") || "",
+      totalStudentsEnrolled: formData.get("totalStudentsEnrolled") || "",
+      totalFacultyMembers: formData.get("totalFacultyMembers") || "",
       questions: formData.get("questions") || "",
       consent: formData.get("consent") === "on",
     };
@@ -490,6 +496,30 @@ const Testimonial = () => {
                       <option>Online Learning Provider</option>
                       <option>University</option>
                     </select>
+                  </div>
+                  <div className="col-sm-6">
+                    <label htmlFor="totalStudentsEnrolled">Total Students Enrolled</label>
+                    <input
+                      type="number"
+                      id="totalStudentsEnrolled"
+                      name="totalStudentsEnrolled"
+                      placeholder="Total Students Enrolled"
+                      value={formState.totalStudentsEnrolled}
+                      onChange={handleInputChange}
+                      min={0}
+                    />
+                  </div>
+                  <div className="col-sm-6">
+                    <label htmlFor="totalFacultyMembers">Total Faculty Members</label>
+                    <input
+                      type="number"
+                      id="totalFacultyMembers"
+                      name="totalFacultyMembers"
+                      placeholder="Total Faculty Members"
+                      value={formState.totalFacultyMembers}
+                      onChange={handleInputChange}
+                      min={0}
+                    />
                   </div>
                   <div className="col-12">
                     <label htmlFor="questions">Questions?</label>
