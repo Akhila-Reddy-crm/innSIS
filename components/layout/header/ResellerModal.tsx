@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { countries } from "@/utils/countries";
+import { useT } from "@/components/i18n/useT";
 
 interface ResellerModalProps {
   open: boolean;
@@ -10,6 +11,7 @@ interface ResellerModalProps {
 const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
   const [tab, setTab] = useState<"apply" | "login">("apply");
   const appFormRef = useRef<HTMLFormElement | null>(null);
+  const { t } = useT();
 
   const [appForm, setAppForm] = useState({
     firstName: "",
@@ -47,7 +49,12 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
     e.preventDefault();
 
     if (!isAppFormValid()) {
-      alert("Please fill in all required fields and accept Privacy Policy & Terms before submitting.");
+      alert(
+        t(
+          "reseller.validationAlert",
+          "Please fill in all required fields and accept Privacy Policy & Terms before submitting."
+        )
+      );
       return;
     }
 
@@ -61,11 +68,21 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
       });
 
       if (!res.ok) {
-        alert("There was a problem submitting the reseller application. Please try again.");
+        alert(
+          t(
+            "reseller.submitError",
+            "There was a problem submitting the reseller application. Please try again."
+          )
+        );
         return;
       }
 
-      alert("Thank you! Your reseller application has been submitted. We will contact you soon.");
+      alert(
+        t(
+          "reseller.submitSuccess",
+          "Thank you! Your reseller application has been submitted. We will contact you soon."
+        )
+      );
       setAppForm({
         firstName: "",
         lastName: "",
@@ -83,7 +100,12 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
       onClose();
     } catch (error) {
       console.error("Reseller form submit error", error);
-      alert("There was a problem submitting the reseller application. Please try again.");
+      alert(
+        t(
+          "reseller.submitError",
+          "There was a problem submitting the reseller application. Please try again."
+        )
+      );
     }
   };
 
@@ -101,7 +123,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
     
     <div className="reseller-title">
-      🎓 INNSIS / Reseller Portal
+      {t("reseller.portalTitle", "🎓 INNSIS / Reseller Portal")}
     </div>
 
     <button
@@ -131,13 +153,15 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
               className={tab === "apply" ? "active" : ""}
               onClick={() => setTab("apply")}
             >
-              <i className="fa-solid fa-star" style={{ marginRight: 6 }}></i> Become a Reseller
+              <i className="fa-solid fa-star" style={{ marginRight: 6 }}></i>{" "}
+              {t("reseller.tabs.becomeReseller", "Become a Reseller")}
             </span>
             <span
               className={tab === "login" ? "active" : ""}
               onClick={() => setTab("login")}
             >
-              <i className="fa-regular fa-arrow-right-long" style={{ marginRight: 6 }}></i> Partner Login
+              <i className="fa-regular fa-arrow-right-long" style={{ marginRight: 6 }}></i>{" "}
+              {t("reseller.tabs.partnerLogin", "Partner Login")}
             </span>
           </div>
      
@@ -145,11 +169,16 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
         <div className="reseller-content">
           {tab === "apply" ? (
             <form ref={appFormRef} onSubmit={submitApp}>
-              <h4>Join the Partner Program</h4>
-              <p style={{fontSize:'14px'}}>Fill in the form below — our team will review your application and respond within 2 business days.</p>
+              <h4>{t("reseller.apply.title", "Join the Partner Program")}</h4>
+              <p style={{fontSize:'14px'}}>
+                {t(
+                  "reseller.apply.subtitle",
+                  "Fill in the form below — our team will review your application and respond within 2 business days."
+                )}
+              </p>
               <div className="row">
                 <div className="col-md-6">
-                  <label>First Name *</label>
+                  <label>{t("reseller.apply.firstName", "First Name *")}</label>
                   <input
                     type="text"
                     className="form-control"
@@ -159,7 +188,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   />
                 </div>
                 <div className="col-md-6">
-                  <label>Last Name *</label>
+                  <label>{t("reseller.apply.lastName", "Last Name *")}</label>
                   <input
                     type="text"
                     className="form-control"
@@ -171,7 +200,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
               </div>
               <div className="row mt-3">
                 <div className="col-md-6">
-                  <label>Business Email *</label>
+                  <label>{t("reseller.apply.businessEmail", "Business Email *")}</label>
                   <input
                     type="email"
                     className="form-control"
@@ -181,7 +210,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   />
                 </div>
                 <div className="col-md-6">
-                  <label>Phone Number *</label>
+                  <label>{t("reseller.apply.phone", "Phone Number *")}</label>
                   <input
                     type="text"
                     className="form-control"
@@ -193,7 +222,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
               </div>
               <div className="row mt-3">
                 <div className="col-md-6">
-                  <label>Job Title</label>
+                  <label>{t("reseller.apply.jobTitle", "Job Title")}</label>
                   <input
                     type="text"
                     className="form-control"
@@ -203,10 +232,10 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                 </div>
               </div>
               <hr />
-              <h5>Company Info</h5>
+              <h5>{t("reseller.apply.companyInfo", "Company Info")}</h5>
               <div className="row">
                 <div className="col-md-6">
-                  <label>Company Name *</label>
+                  <label>{t("reseller.apply.companyName", "Company Name *")}</label>
                   <input
                     type="text"
                     className="form-control"
@@ -216,7 +245,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   />
                 </div>
                 <div className="col-md-6">
-                  <label>Company Website</label>
+                  <label>{t("reseller.apply.companyWebsite", "Company Website")}</label>
                   <input
                     type="text"
                     className="form-control"
@@ -227,13 +256,13 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
               </div>
               <div className="row mt-3">
                 <div className="col-md-6">
-                  <label>Company Size</label>
+                  <label>{t("reseller.apply.companySize", "Company Size")}</label>
                   <select
                     className="form-control"
                     value={appForm.companySize || ""}
                     onChange={(e) => onAppChange("companySize", e.target.value)}
                   >
-                    <option value="">Select…</option>
+                    <option value="">{t("common.select", "Select…")}</option>
                     <option>1-10</option>
                     <option>11-50</option>
                     <option>51-200</option>
@@ -242,14 +271,14 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   </select>
                 </div>
                 <div className="col-md-6">
-                  <label>Country *</label>
+                  <label>{t("reseller.apply.country", "Country *")}</label>
                   <select
                     className="form-control"
                     value={appForm.country}
                     onChange={(e) => onAppChange("country", e.target.value)}
                     required
                   >
-                    <option value="">Select…</option>
+                    <option value="">{t("common.select", "Select…")}</option>
                     {countries.map((c) => (
                       <option key={c}>{c}</option>
                     ))}
@@ -258,22 +287,27 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
               </div>
               <div className="row mt-3">
                 <div className="col-md-6">
-                  <label>Sector You Serve</label>
+                  <label>{t("reseller.apply.sector", "Sector You Serve")}</label>
                   <select
                     className="form-control"
                     value={appForm.sector}
                     onChange={(e) => onAppChange("sector", e.target.value)}
                   >
-                    <option value="">Select…</option>
-                    <option>K-12 Schools</option>
-                    <option>Colleges/University</option>
-                    <option>Private Schools</option>
-                    <option>Other</option>
+                    <option value="">{t("common.select", "Select…")}</option>
+                    <option>{t("reseller.apply.sectorOptions.k12", "K-12 Schools")}</option>
+                    <option>{t("reseller.apply.sectorOptions.collegeUniversity", "Colleges/University")}</option>
+                    <option>{t("reseller.apply.sectorOptions.privateSchools", "Private Schools")}</option>
+                    <option>{t("common.other", "Other")}</option>
                   </select>
                 </div>
               </div>
               <div className="mt-3">
-                <label>Why do you want to partner with INNSIS?</label>
+                <label>
+                  {t(
+                    "reseller.apply.reasonLabel",
+                    "Why do you want to partner with INNSIS?"
+                  )}
+                </label>
                 <textarea
                   className="form-control"
                   rows={3}
@@ -291,7 +325,10 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   required
                 />
                 <label className="form-check-label" htmlFor="agreeCheck">
-                  I agree to INNSIS's <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>. My information will be used to evaluate my reseller application.
+                  {t(
+                    "reseller.apply.agreeText",
+                    "I agree to INNSIS's Privacy Policy and Terms of Service. My information will be used to evaluate my reseller application."
+                  )}
                 </label>
               </div>
               <button
@@ -304,21 +341,41 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                   cursor: isAppFormValid() ? "pointer" : "not-allowed",
                 }}
               >
-                Submit Application <i className="fa-regular fa-arrow-right-long"></i>
+                {t("reseller.apply.submit", "Submit Application")}{" "}
+                <i className="fa-regular fa-arrow-right-long"></i>
               </button>
               <p className="mt-2 text-center">
-                Already a partner? <a href="#" onClick={(e) => { e.preventDefault(); setTab("login"); }}>
-                  Log in here →
+                {t("reseller.apply.alreadyPartner", "Already a partner?")}{" "}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setTab("login");
+                  }}
+                >
+                  {t("reseller.apply.loginHere", "Log in here →")}
                 </a>
               </p>
             </form>
           ) : (
             <form onSubmit={submitLogin}>
-              <h4>Partner Login</h4>
-              <p style={{fontSize:'14px'}}>Access your reseller dashboard, track commissions, and manage your accounts.</p>
-              {loginError && <p className="text-danger">Invalid Email Address and/or Password</p>}
+              <h4>{t("reseller.login.title", "Partner Login")}</h4>
+              <p style={{fontSize:'14px'}}>
+                {t(
+                  "reseller.login.subtitle",
+                  "Access your reseller dashboard, track commissions, and manage your accounts."
+                )}
+              </p>
+              {loginError && (
+                <p className="text-danger">
+                  {t(
+                    "reseller.login.invalidCreds",
+                    "Invalid Email Address and/or Password"
+                  )}
+                </p>
+              )}
               <div className="mt-2">
-                <label>Email Address *</label>
+                <label>{t("reseller.login.email", "Email Address *")}</label>
                 <input
                   type="email"
                   className="form-control"
@@ -328,7 +385,7 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                 />
               </div>
               <div className="mt-3">
-                <label>Password *</label>
+                <label>{t("reseller.login.password", "Password *")}</label>
                 <input
                   type="password"
                   className="form-control"
@@ -338,11 +395,18 @@ const ResellerModal: React.FC<ResellerModalProps> = ({ open, onClose }) => {
                 />
               </div>
               <button type="submit" className="btn-one mt-4" style={{ width: "100%", background: "#0046A8", color: "#fff" }}>
-                Log In to Portal →
+                {t("reseller.login.submit", "Log In to Portal →")}
               </button>
               <p className="mt-2 text-center">
-                Not a reseller yet? <a href="#" onClick={(e) => { e.preventDefault(); setTab("apply"); }}>
-                  Apply now →
+                {t("reseller.login.notAReseller", "Not a reseller yet?")}{" "}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setTab("apply");
+                  }}
+                >
+                  {t("reseller.login.applyNow", "Apply now →")}
                 </a>
               </p>
             </form>

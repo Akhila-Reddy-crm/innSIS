@@ -1,45 +1,33 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useT } from "@/components/i18n/useT";
 const Offer = () => {
+  const { t } = useT();
   const institutions = [
     {
       id: 1,
-      title: "K-12 Schools",
-      description: "Support day-to-day school operations with tools for attendance, grading, parent communication, scheduling, and student records",
       image: "https://images.pexels.com/photos/8617642/pexels-photo-8617642.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
     {
       id: 2,
-      title: "Colleges & Universities",
-      description: "Manage complex academic structures, programs, financial processes, and reporting requirements with a scalable platform built for higher education.",
       image: "https://images.pexels.com/photos/7972512/pexels-photo-7972512.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
     {
       id: 3,
-      title: "Independent Institutions",
-      description: "Configure workflows, programs, and approvals to match your institution's policies while maintaining full control over data and operations.",
       image: "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
     {
       id: 4,
-      title: "Language Schools",
-      description: "Streamline admissions, class scheduling, attendance tracking, and student progress for short-term, cohort-based, or continuous enrollment models.",
       image: "https://images.pexels.com/photos/5905923/pexels-photo-5905923.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
     {
       id: 5,
-      title: "Multi-Campus",
-      description:
-        "Centralize data across campuses, departments, and academic terms while maintaining visibility and control at every level.",
       image:
         "https://images.pexels.com/photos/7972568/pexels-photo-7972568.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       id: 6,
-      title: "Continuing Education",
-      description:
-        "Support professional development, certificate programs, and lifelong learning with flexible tools for enrollment, scheduling, attendance, and learner progress tracking.",
       image:
         "https://images.pexels.com/photos/7092460/pexels-photo-7092460.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
@@ -55,7 +43,7 @@ const Offer = () => {
             data-aos-delay="200"
             data-aos-duration="1500"
           >
-            Institutions We Serve
+            {t("institutions.title", "Institutions We Serve")}
           </h2>
           <h3
             className="text-white mb-15"
@@ -64,7 +52,10 @@ const Offer = () => {
             data-aos-delay="300"
             data-aos-duration="1500"
           >
-            Flexible Solutions for Every Type of Educational Institution
+            {t(
+              "institutions.subtitle",
+              "Flexible Solutions for Every Type of Educational Institution"
+            )}
           </h3>
           <p
             className="text-white"
@@ -73,7 +64,10 @@ const Offer = () => {
             data-aos-delay="400"
             data-aos-duration="1500"
           >
-            INNSIS is designed to adapt to the unique needs of different educational environments, whether you manage a small private school or a large multi-campus institution.
+            {t(
+              "institutions.description",
+              "INNSIS is designed to adapt to the unique needs of different educational environments, whether you manage a small private school or a large multi-campus institution."
+            )}
           </p>
         </div>
         <div className="row g-4">
@@ -108,7 +102,7 @@ const Offer = () => {
                 >
                   <Image
                     src={institution.image}
-                    alt={institution.title}
+                    alt={t(`institutions.items.${institution.id}.title`)}
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -129,10 +123,10 @@ const Offer = () => {
                     className="text-white"
                     style={{ fontSize: "20px", fontWeight: "600" }}
                   >
-                    {institution.title}
+                    {t(`institutions.items.${institution.id}.title`)}
                   </h4>
                   <p className="text-white mb-0" style={{ fontSize: "14px", lineHeight: "1.6", opacity: "0.95" }}>
-                    {institution.description}
+                    {t(`institutions.items.${institution.id}.description`)}
                   </p>
                 </div>
               </div>

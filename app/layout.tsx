@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import InitAnimations from "@/components/layout/InitAnimations";
+import { I18nWrapper } from "@/components/i18n/I18nWrapper";
 import "@/public/styles/style.scss";
 
 export const metadata: Metadata = {
@@ -49,8 +50,10 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        {children}
-        <InitAnimations />
+        <I18nWrapper>
+          {children}
+          <InitAnimations />
+        </I18nWrapper>
       </body>
     </html>
   );

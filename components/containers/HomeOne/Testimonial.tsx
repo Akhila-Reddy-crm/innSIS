@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useT } from "@/components/i18n/useT";
 
 type FormState = {
   firstName: string;
@@ -45,6 +46,7 @@ const initialFormState: FormState = {
 const Testimonial = () => {
   const [formState, setFormState] = useState<FormState>(initialFormState);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const { t } = useT();
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -74,7 +76,10 @@ const Testimonial = () => {
 
     if (!isFormValid()) {
       alert(
-        "Please fill in all required fields and agree to receive communications from INNSIS before submitting."
+        t(
+          "contactForm.validationAlert",
+          "Please fill in all required fields and agree to receive communications from INNSIS before submitting."
+        )
       );
       return;
     }
@@ -110,53 +115,53 @@ const Testimonial = () => {
       });
 
       if (!res.ok) {
-        alert("There was a problem submitting the form. Please try again.111");
+        alert(
+          t(
+            "contactForm.submitError",
+            "There was a problem submitting the form. Please try again."
+          )
+        );
         return;
       }
 
-      alert("Thank you! Your request has been submitted. We will contact you soon.");
+      alert(
+        t(
+          "contactForm.submitSuccess",
+          "Thank you! Your request has been submitted. We will contact you soon."
+        )
+      );
       form.reset();
       setFormState(initialFormState);
     } catch (error) {
       console.error("Form submit error", error);
-      alert("There was a problem submitting the form. Please try again.");
+      alert(
+        t(
+          "contactForm.submitError",
+          "There was a problem submitting the form. Please try again."
+        )
+      );
     }
   };
 
   const testimonials = [
     {
       id: 1,
-      quote: "INNSIS has completely changed how we manage student records, attendance, and grades. Having everything in one platform has significantly reduced administrative workload.",
-      name: "Sarah Thompson",
-      role: "Academic Administrator",
       image: "https://images.pexels.com/photos/5717546/pexels-photo-5717546.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 2,
-      quote: "The role-based portals make a huge difference. Faculty, students, and parents all see exactly what they need, which has improved communication across our institution.",
-      name: "Michael Rodriguez",
-      role: "Faculty Member",
       image: "https://images.pexels.com/photos/7841434/pexels-photo-7841434.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 3,
-      quote: "INNSIS gave us real-time visibility into academic performance and attendance trends. The reporting tools alone have transformed how we make decisions.",
-      name: "Aisha Patel",
-      role: "Director of Academics",
       image: "https://images.pexels.com/photos/7580821/pexels-photo-7580821.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 4,
-      quote: "The admissions and enrollment workflows are simple, efficient, and easy to track. Our team spends far less time on manual follow-ups.",
-      name: "Daniel Lee",
-      role: "Admissions Manager",
       image: "https://images.pexels.com/photos/10031556/pexels-photo-10031556.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 5,
-      quote: "We needed a system that could scale as we grow, and INNSIS delivered. Managing programs, courses, and multiple academic terms is now seamless.",
-      name: "Emily Carter",
-      role: "Operations Manager",
       image: "https://images.pexels.com/photos/4342352/pexels-photo-4342352.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
   ];
@@ -179,7 +184,7 @@ const Testimonial = () => {
             data-aos-duration="1500"
           >
             <Image className="me-1" src={Title} alt="icon" priority />
-            WHAT INSTITUTIONS SAY
+            {t("impact.kicker", "WHAT INSTITUTIONS SAY")}
           </h5>
           <h2
             className="text-white mb-20"
@@ -187,7 +192,7 @@ const Testimonial = () => {
             data-aos-delay="200"
             data-aos-duration="1500"
           >
-            What Institutions Say About INNSIS
+            {t("impact.title", "What Institutions Say About INNSIS")}
           </h2>
         </div>
         {/* Our Impact: testimonial cards carousel */}
@@ -242,7 +247,7 @@ const Testimonial = () => {
                       fontStyle: "italic",
                     }}
                   >
-                    &quot;{testimonial.quote}&quot;
+                    &quot;{t(`testimonials.items.${testimonial.id}.quote`)}&quot;
                   </p>
                   <div className="d-flex align-items-center gap-3" style={{ position: "relative" }}>
                     <div
@@ -258,7 +263,7 @@ const Testimonial = () => {
                     >
                       <Image
                         src={testimonial.image}
-                        alt={testimonial.name}
+                        alt={t(`testimonials.items.${testimonial.id}.name`)}
                         width={60}
                         height={60}
                         style={{ borderRadius: "50%", objectFit: "cover" }}
@@ -269,13 +274,13 @@ const Testimonial = () => {
                         className="text-white mb-0"
                         style={{ fontSize: "16px", fontWeight: "600" }}
                       >
-                        {testimonial.name}
+                        {t(`testimonials.items.${testimonial.id}.name`)}
                       </h5>
                       <p
                         className="text-white mb-0"
                         style={{ fontSize: "14px", opacity: "0.8" }}
                       >
-                        {testimonial.role}
+                        {t(`testimonials.items.${testimonial.id}.role`)}
                       </p>
                     </div>
                     {/* Fixed shape that maintains consistent position */}
@@ -334,11 +339,16 @@ const Testimonial = () => {
                     />
                     <rect x="8" width="20" height="12" rx="6" fill="white" />
                   </svg>
-                  TALK TO US
+                  {t("contactForm.kicker", "TALK TO US")}
                 </h5>
-                <h2 className="text-white">How May We Help You!</h2>
+                <h2 className="text-white">
+                  {t("contactForm.title", "How May We Help You!")}
+                </h2>
                 <p className="text-white mt-20" style={{ fontSize: "16px", opacity: "0.9" }}>
-                  Fill out this form below and our team will help you explore how INNSIS fits your institution&apos;s needs!
+                  {t(
+                    "contactForm.subtitle",
+                    "Fill out this form below and our team will help you explore how INNSIS fits your institution's needs!"
+                  )}
                 </p>
               </div>
               <form
@@ -348,55 +358,74 @@ const Testimonial = () => {
               >
                 <div className="row g-3">
                   <div className="col-sm-6">
-                    <label htmlFor="firstName">First Name*</label>
+                    <label htmlFor="firstName">
+                      {t("contactForm.firstName.label", "First Name*")}
+                    </label>
                     <input
                       type="text"
                       id="firstName"
                       name="firstName"
-                      placeholder="First Name"
+                      placeholder={t(
+                        "contactForm.firstName.placeholder",
+                        "First Name"
+                      )}
                       value={formState.firstName}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="lastName">Last Name*</label>
+                    <label htmlFor="lastName">
+                      {t("contactForm.lastName.label", "Last Name*")}
+                    </label>
                     <input
                       type="text"
                       id="lastName"
                       name="lastName"
-                      placeholder="Last Name"
+                      placeholder={t(
+                        "contactForm.lastName.placeholder",
+                        "Last Name"
+                      )}
                       value={formState.lastName}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="email">Email*</label>
+                    <label htmlFor="email">
+                      {t("contactForm.email.label", "Email*")}
+                    </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      placeholder="Email"
+                      placeholder={t("contactForm.email.placeholder", "Email")}
                       value={formState.email}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="phone">Phone Number*</label>
+                    <label htmlFor="phone">
+                      {t("contactForm.phone.label", "Phone Number*")}
+                    </label>
                     <input
                       type="text"
                       id="phone"
                       name="phone"
-                      placeholder="Phone Number"
+                      placeholder={t(
+                        "contactForm.phone.placeholder",
+                        "Phone Number"
+                      )}
                       value={formState.phone}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="country">Country*</label>
+                    <label htmlFor="country">
+                      {t("contactForm.country.label", "Country*")}
+                    </label>
                     <select
                       id="country"
                       name="country"
@@ -405,14 +434,21 @@ const Testimonial = () => {
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Select Country</option>
+                      <option value="">
+                        {t("contactForm.country.select", "Select Country")}
+                      </option>
                       {countries.map((c: string) => (
                         <option key={c}>{c}</option>
                       ))}
                     </select>
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="help">How can we help you today?*</label>
+                    <label htmlFor="help">
+                      {t(
+                        "contactForm.help.label",
+                        "How can we help you today?*"
+                      )}
+                    </label>
                     <select
                       id="help"
                       name="help"
@@ -421,61 +457,120 @@ const Testimonial = () => {
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Select an option</option>
-                      <option value="Request a Demo">Request a Demo</option>
-                      <option value="Sales Inquiry">Sales Inquiry</option>
-                      <option value="Product Information">Product Information</option>
+                      <option value="">
+                        {t("contactForm.help.select", "Select an option")}
+                      </option>
+                      <option value="Request a Demo">
+                        {t("contactForm.help.options.requestDemo", "Request a Demo")}
+                      </option>
+                      <option value="Sales Inquiry">
+                        {t("contactForm.help.options.salesInquiry", "Sales Inquiry")}
+                      </option>
+                      <option value="Product Information">
+                        {t(
+                          "contactForm.help.options.productInformation",
+                          "Product Information"
+                        )}
+                      </option>
                       <option value="Implementation & Onboarding">
-                        Implementation &amp; Onboarding
+                        {t(
+                          "contactForm.help.options.implementationOnboarding",
+                          "Implementation & Onboarding"
+                        )}
                       </option>
-                      <option value="Pricing & Licensing">Pricing &amp; Licensing</option>
-                      <option value="Technical Support">Technical Support</option>
-                      <option value="Integration Questions">Integration Questions</option>
+                      <option value="Pricing & Licensing">
+                        {t(
+                          "contactForm.help.options.pricingLicensing",
+                          "Pricing & Licensing"
+                        )}
+                      </option>
+                      <option value="Technical Support">
+                        {t(
+                          "contactForm.help.options.technicalSupport",
+                          "Technical Support"
+                        )}
+                      </option>
+                      <option value="Integration Questions">
+                        {t(
+                          "contactForm.help.options.integrationQuestions",
+                          "Integration Questions"
+                        )}
+                      </option>
                       <option value="Partnership Opportunities">
-                        Partnership Opportunities
+                        {t(
+                          "contactForm.help.options.partnershipOpportunities",
+                          "Partnership Opportunities"
+                        )}
                       </option>
-                      <option value="Training & Resources">Training &amp; Resources</option>
-                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Training & Resources">
+                        {t(
+                          "contactForm.help.options.trainingResources",
+                          "Training & Resources"
+                        )}
+                      </option>
+                      <option value="General Inquiry">
+                        {t(
+                          "contactForm.help.options.generalInquiry",
+                          "General Inquiry"
+                        )}
+                      </option>
                     </select>
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="institution">Institution Name*</label>
+                    <label htmlFor="institution">
+                      {t("contactForm.institution.label", "Institution Name*")}
+                    </label>
                     <input
                       type="text"
                       id="institution"
                       name="institution"
-                      placeholder="Institution Name"
+                      placeholder={t(
+                        "contactForm.institution.placeholder",
+                        "Institution Name"
+                      )}
                       value={formState.institution}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="jobTitle">Job title*</label>
+                    <label htmlFor="jobTitle">
+                      {t("contactForm.jobTitle.label", "Job title*")}
+                    </label>
                     <input
                       type="text"
                       id="jobTitle"
                       name="jobTitle"
-                      placeholder="Job Title"
+                      placeholder={t(
+                        "contactForm.jobTitle.placeholder",
+                        "Job Title"
+                      )}
                       value={formState.jobTitle}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="schoolUrl">School URL*</label>
+                    <label htmlFor="schoolUrl">
+                      {t("contactForm.schoolUrl.label", "School URL*")}
+                    </label>
                     <input
                       type="text"
                       id="schoolUrl"
                       name="schoolUrl"
-                      placeholder="School URL"
+                      placeholder={t(
+                        "contactForm.schoolUrl.placeholder",
+                        "School URL"
+                      )}
                       value={formState.schoolUrl}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="schoolType">Select School Type*</label>
+                    <label htmlFor="schoolType">
+                      {t("contactForm.schoolType.label", "Select School Type*")}
+                    </label>
                     <select
                       id="schoolType"
                       name="schoolType"
@@ -484,49 +579,92 @@ const Testimonial = () => {
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Select School Type</option>
-                      <option>Business School</option>
-                      <option>Career College</option>
-                      <option>College</option>
-                      <option>Community College</option>
-                      <option>Independent Institutions</option>
-                      <option>K-12</option>
-                      <option>Language Schools</option>
-                      <option>Multi-Campus Organization</option>
-                      <option>Online Learning Provider</option>
-                      <option>University</option>
+                      <option value="">
+                        {t("contactForm.schoolType.select", "Select School Type")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.businessSchool", "Business School")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.careerCollege", "Career College")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.college", "College")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.communityCollege", "Community College")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.independentInstitutions", "Independent Institutions")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.k12", "K-12")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.languageSchools", "Language Schools")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.multiCampusOrganization", "Multi-Campus Organization")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.onlineLearningProvider", "Online Learning Provider")}
+                      </option>
+                      <option>
+                        {t("contactForm.schoolType.options.university", "University")}
+                      </option>
                     </select>
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="totalStudentsEnrolled">Total Students Enrolled</label>
+                    <label htmlFor="totalStudentsEnrolled">
+                      {t(
+                        "contactForm.totalStudentsEnrolled.label",
+                        "Total Students Enrolled"
+                      )}
+                    </label>
                     <input
                       type="number"
                       id="totalStudentsEnrolled"
                       name="totalStudentsEnrolled"
-                      placeholder="Total Students Enrolled"
+                      placeholder={t(
+                        "contactForm.totalStudentsEnrolled.placeholder",
+                        "Total Students Enrolled"
+                      )}
                       value={formState.totalStudentsEnrolled}
                       onChange={handleInputChange}
                       min={0}
                     />
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="totalFacultyMembers">Total Faculty Members</label>
+                    <label htmlFor="totalFacultyMembers">
+                      {t(
+                        "contactForm.totalFacultyMembers.label",
+                        "Total Faculty Members"
+                      )}
+                    </label>
                     <input
                       type="number"
                       id="totalFacultyMembers"
                       name="totalFacultyMembers"
-                      placeholder="Total Faculty Members"
+                      placeholder={t(
+                        "contactForm.totalFacultyMembers.placeholder",
+                        "Total Faculty Members"
+                      )}
                       value={formState.totalFacultyMembers}
                       onChange={handleInputChange}
                       min={0}
                     />
                   </div>
                   <div className="col-12">
-                    <label htmlFor="questions">Questions?</label>
+                    <label htmlFor="questions">
+                      {t("contactForm.questions.label", "Questions?")}
+                    </label>
                     <textarea
                       id="questions"
                       name="questions"
-                      placeholder="Questions?"
+                      placeholder={t(
+                        "contactForm.questions.placeholder",
+                        "Questions?"
+                      )}
                       rows={3}
                       value={formState.questions}
                       onChange={handleInputChange}
@@ -535,7 +673,10 @@ const Testimonial = () => {
                 </div>
                 <div className="mt-30" style={{ fontSize: "13px", color: "rgba(255, 255, 255, 0.9)", lineHeight: "1.6" }}>
                   <p className="mb-15">
-                    INNSIS is committed to protecting and respecting your privacy, and we&apos;ll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:
+                    {t(
+                      "contactForm.privacyText1",
+                      "INNSIS is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:"
+                    )}
                   </p>
                   <div className="mb-15">
                     <label
@@ -555,15 +696,24 @@ const Testimonial = () => {
                         required
                       />
                       <span style={{ color: "white", fontWeight: 600 }}>
-                        I agree to receive other communications from INNSIS.
+                        {t(
+                          "contactForm.consentLabel",
+                          "I agree to receive other communications from INNSIS."
+                        )}
                       </span>
                     </label>
                   </div>
                   <p className="mb-15">
-                    You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our Privacy Policy.
+                    {t(
+                      "contactForm.privacyText2",
+                      "You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our Privacy Policy."
+                    )}
                   </p>
                   <p>
-                    By submitting this form, you consent to allow INNSIS to store and process the personal information submitted above to provide you the content requested.
+                    {t(
+                      "contactForm.privacyText3",
+                      "By submitting this form, you consent to allow INNSIS to store and process the personal information submitted above to provide you the content requested."
+                    )}
                   </p>
                 </div>
                 <button
@@ -579,7 +729,8 @@ const Testimonial = () => {
                     cursor: isFormValid() ? "pointer" : "not-allowed",
                   }}
                 >
-                  Submit <i className="fa-regular fa-arrow-right-long"></i>
+                  {t("common.submit", "Submit")}{" "}
+                  <i className="fa-regular fa-arrow-right-long"></i>
                 </button>
               </form>
             </div>

@@ -4,9 +4,11 @@ import Image from "next/image";
 import ModalVideo from "react-modal-video";
 import One from "@/public/images/logo/about.png";
 import Three from "@/public/images/icon/section-title.png";
+import { useT } from "@/components/i18n/useT";
 
 const About = () => {
   const [isOpen, setOpen] = useState(false);
+  const { t } = useT();
 
   return (
     <>
@@ -47,7 +49,7 @@ const About = () => {
                   data-aos-duration="1500"
                 >
                   <Image className="me-1" src={Three} alt="icon" priority />
-                  ABOUT INNSIS
+                  {t("about.kicker")}
                 </h5>
                 <h2
                   className=""
@@ -55,7 +57,7 @@ const About = () => {
                   data-aos-delay="200"
                   data-aos-duration="1500"
                 >
-                  A Fully Integrated Student Information System
+                  {t("about.title")}
                 </h2>
                 <p
                   className=""
@@ -63,7 +65,7 @@ const About = () => {
                   data-aos-delay="400"
                   data-aos-duration="1500"
                 >
-                  INNSIS is a modern, all-in-one Student Information System designed to help educational institutions manage the complete student lifecycle with clarity and efficiency. From admissions through graduation, INNSIS brings academic, administrative, and financial processes together into one secure, centralized platform.
+                  {t("about.paragraph1")}
                 </p>
                 <p
                   className=""
@@ -71,7 +73,7 @@ const About = () => {
                   data-aos-delay="500"
                   data-aos-duration="1500"
                 >
-                  <strong>With INNSIS, institutions can:</strong>
+                  <strong>{t("about.bullets.intro")}</strong>
                 </p>
                 <ul
                   className="mt-2"
@@ -81,16 +83,20 @@ const About = () => {
                   data-aos-duration="1500"
                 >
                   <li>
-                    <strong>Centralized student information</strong> across admissions, academics, attendance, and finance
+                    <strong>{t("about.bullets.0.bold")}</strong>{" "}
+                    {t("about.bullets.0.rest")}
                   </li>
                   <li>
-                    <strong>Reduce administrative complexity</strong> through intelligent automation and streamlined workflows
+                    <strong>{t("about.bullets.1.bold")}</strong>{" "}
+                    {t("about.bullets.1.rest")}
                   </li>
                   <li>
-                    <strong>Gain real-time visibility</strong> into academic performance, enrollment, and operations
+                    <strong>{t("about.bullets.2.bold")}</strong>{" "}
+                    {t("about.bullets.2.rest")}
                   </li>
                   <li>
-                    <strong>Support every stakeholder</strong> with role-based portals for students, faculty, parents, and administrators
+                    <strong>{t("about.bullets.3.bold")}</strong>{" "}
+                    {t("about.bullets.3.rest")}
                   </li>
                 </ul>
               </div>

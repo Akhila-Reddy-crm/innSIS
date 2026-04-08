@@ -4,14 +4,8 @@ import ResellerModal from "./ResellerModal";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/public/images/logo/logo-blue-original1.png";
-
-const navLinks = [
-  { label: "Features", target: "features" },
-  { label: "About Us", target: "about-section" },
-  { label: "Our Institutions", target: "institutions" },
-  { label: "Our Impact", target: "impact-section" },
-  { label: "Contact Us", target: "contact-section" },
-];
+import { useT } from "@/components/i18n/useT";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -21,9 +15,30 @@ const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchToggle, setSearchToggle] = useState(false);
+  const { t } = useT();
 
   // reseller modal open state
   const [resellerToggle, setResellerToggle] = useState(false);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navLinks = [
+    { label: t("nav.features", "Features"), target: "features" },
+    { label: t("nav.aboutUs", "About Us"), target: "about-section" },
+    { label: t("nav.ourInstitutions", "Our Institutions"), target: "institutions" },
+    { label: t("nav.ourImpact", "Our Impact"), target: "impact-section" },
+    { label: t("nav.contactUs", "Contact Us"), target: "contact-section" },
+  ];
 
   return (
     <>
@@ -31,7 +46,16 @@ const Header = () => {
         <div className="container header__container">
           <div className="header__main">
             <Link href="/" className="logo">
-              <Image src={logo} alt="INNSIS logo" style={{height:"15vh"}} priority />
+              <Image 
+                src={logo} 
+                alt="INNSIS logo" 
+                style={{
+                  // width: "auto",
+                  // maxHeight: "60px",
+                  height: "15vh",
+                }} 
+                priority 
+              />
             </Link>
 
             {/* Desktop nav */}
@@ -53,34 +77,47 @@ const Header = () => {
             </div>
 
             {/* Desktop CTAs */}
-           
-<div className="d-none d-lg-flex" style={{ gap: "10px", alignItems: "center" }}>
-  <a
-    href="#contact-section"
-    className="btn-one"
-    onClick={(e) => { e.preventDefault(); scrollTo("contact-section"); }}
-    style={{ padding: "8px 14px", fontSize: "13px", whiteSpace: "nowrap" }}
-  >
-    Get a Demo <i className="fa-regular fa-arrow-right-long"></i>
-  </a>
-  <a
-    href="https://1drv.ms/b/c/64f83ff70ae97eb7/IQA97OCFOgVkQqrYOyGHYwYsAST2uL2Qh--ARP3fqGZiLiU?e=0RkF3m"
-    className="btn-one btn-small"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ padding: "8px 14px", fontSize: "13px", whiteSpace: "nowrap" }}
-  >
-    Get More Info <i className="fa-regular fa-arrow-right-long"></i>
-  </a>
-  <a
-    href="#"
-    className="btn-one"
-    onClick={(e) => { e.preventDefault(); setResellerToggle(true); }}
-    style={{ padding: "8px 14px", fontSize: "13px", whiteSpace: "nowrap" }}
-  >
-    Reseller <i className="fa-regular fa-arrow-right-long"></i>
-  </a>
-</div>
+            <div className="d-none d-lg-flex header__actions" style={{ 
+              gap: "12px", 
+              alignItems: "center",
+              flexWrap: "nowrap",
+              justifyContent: "flex-end"
+            }}>
+              <a
+                href="#contact-section"
+                className="btn-one"
+                onClick={(e) => { e.preventDefault(); scrollTo("contact-section"); }}
+                style={{ 
+                  padding: "8px 14px", 
+                  fontSize: "13px"
+                }}
+              >
+                {t("cta.getADemo", "Get a Demo")} <i className="fa-regular fa-arrow-right-long"></i>
+              </a>
+              <a
+                href="https://1drv.ms/b/c/64f83ff70ae97eb7/IQA97OCFOgVkQqrYOyGHYwYsAST2uL2Qh--ARP3fqGZiLiU?e=0RkF3m"
+                className="btn-one btn-small"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ 
+                  padding: "8px 14px", 
+                  fontSize: "13px"
+                }}
+              >
+                {t("cta.getMoreInfo", "Get More Info")} <i className="fa-regular fa-arrow-right-long"></i>
+              </a>
+              <a
+                href="#"
+                className="btn-one"
+                onClick={(e) => { e.preventDefault(); setResellerToggle(true); }}
+                style={{ 
+                  padding: "8px 14px", 
+                  fontSize: "13px"
+                }}
+              >
+                {t("cta.reseller", "Reseller")} <i className="fa-regular fa-arrow-right-long"></i>
+              </a>
+            </div>
 
             {/* Mobile hamburger */}
             <div className="bars d-block d-lg-none" style={{ position: "relative", zIndex: 1100 }}>
@@ -160,26 +197,43 @@ const Header = () => {
                 href="#contact-section"
                 className="btn-one"
                 onClick={(e) => { e.preventDefault(); scrollTo("contact-section"); setToggleMenu(false); }}
-                style={{ textAlign: "center", padding: "12px" }}
+                style={{ 
+                  textAlign: "center", 
+                  padding: "12px",
+                  width: "100%",
+                  boxSizing: "border-box"
+                }}
               >
-                Get a Demo <i className="fa-regular fa-arrow-right-long"></i>
+                {t("cta.getADemo", "Get a Demo")} <i className="fa-regular fa-arrow-right-long"></i>
               </a>
               <a
                 href="https://1drv.ms/b/c/64f83ff70ae97eb7/IQA97OCFOgVkQqrYOyGHYwYsAST2uL2Qh--ARP3fqGZiLiU?e=0RkF3m"
                 className="btn-one"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ textAlign: "center", padding: "12px", background: "rgba(255,255,255,0.15)" }}
+                style={{ 
+                  textAlign: "center", 
+                  padding: "12px", 
+                  background: "rgba(255,255,255,0.15)",
+                  width: "100%",
+                  boxSizing: "border-box"
+                }}
               >
-                Get More Info <i className="fa-regular fa-arrow-right-long"></i>
+                {t("cta.getMoreInfo", "Get More Info")} <i className="fa-regular fa-arrow-right-long"></i>
               </a>
               <a
                 href="#"
                 className="btn-one"
                 onClick={(e) => { e.preventDefault(); setResellerToggle(true); setToggleMenu(false); }}
-                style={{ textAlign: "center", padding: "12px", background: "rgba(255,255,255,0.15)" }}
+                style={{ 
+                  textAlign: "center", 
+                  padding: "12px", 
+                  background: "rgba(255,255,255,0.15)",
+                  width: "100%",
+                  boxSizing: "border-box"
+                }}
               >
-                Reseller <i className="fa-regular fa-arrow-right-long"></i>
+                {t("cta.reseller", "Reseller")} <i className="fa-regular fa-arrow-right-long"></i>
               </a>
             </div>
           </div>

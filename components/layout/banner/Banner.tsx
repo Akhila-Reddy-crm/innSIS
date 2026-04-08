@@ -13,6 +13,7 @@ import Six from "@/public/images/banner/banner-right-line1.png";
 import Seven from "@/public/images/banner/banner-right-line2.png";
 import Eight from "@/public/images/banner/banner-right-line3.png";
 import Nine from "@/public/images/banner/banner-right-line4.png";
+import { useT } from "@/components/i18n/useT";
 
 const noClick: React.CSSProperties = { pointerEvents: "none" };
 
@@ -61,8 +62,29 @@ const slides = [
   },
 ];
 
-const Banner = () => (
-  <section className="banner-area">
+const Banner = () => {
+  const { t } = useT();
+
+  const localizedSlides = [
+    {
+      ...slides[0],
+      title: t("banner.slide1.title", slides[0].title),
+      text: t("banner.slide1.text", slides[0].text),
+    },
+    {
+      ...slides[1],
+      title: t("banner.slide2.title", slides[1].title),
+      text: t("banner.slide2.text", slides[1].text),
+    },
+    {
+      ...slides[2],
+      title: t("banner.slide3.title", slides[2].title),
+      text: t("banner.slide3.text", slides[2].text),
+    },
+  ];
+
+  return (
+    <section className="banner-area">
     <div className="banner__slider" style={{ maxHeight: "90vh" }}>
       <Swiper
         slidesPerView={1}
@@ -75,7 +97,7 @@ const Banner = () => (
         pagination={{ el: ".banner__dot", clickable: true }}
         className="swiper-wrapper"
       >
-        {slides.map((slide, i) => (
+        {localizedSlides.map((slide, i) => (
           <SwiperSlide key={i}>
             <div style={{ position: "relative", minHeight: "90vh" }}>
               <Shapes alt={slide.alt} />
@@ -101,7 +123,7 @@ const Banner = () => (
               <div className="container" style={{ position: "relative", zIndex: 5 }}>
                 <div style={{ maxWidth: 800, paddingTop: 80, paddingBottom: 80 }}>
                   <h4 className="text-white mb-20" style={{ textTransform: "uppercase", fontSize: 18, fontWeight: 600, letterSpacing: 1 }}>
-                    <SVGIcon /> Student Information System
+                    <SVGIcon /> {t("banner.studentInformationSystem", "Student Information System")}
                   </h4>
                   <h1 className="text-white" style={{ fontSize: "clamp(36px, 5vw, 75px)", lineHeight: 1.1, fontWeight: 700 }}>
                     {slide.title}
@@ -118,14 +140,14 @@ const Banner = () => (
                       onClick={() => scrollTo("features")}
                       style={{ cursor: "pointer" }}
                     >
-                      Explore Features <i className="fa-regular fa-arrow-right-long"></i>
+                      {t("banner.exploreFeatures", "Explore Features")} <i className="fa-regular fa-arrow-right-long"></i>
                     </button>
                     <button
                       className="btn-one btn-two"
                       onClick={() => scrollTo("contact-section")}
                       style={{ cursor: "pointer" }}
                     >
-                      Request a Demo <i className="fa-regular fa-arrow-right-long"></i>
+                      {t("banner.requestADemo", "Request a Demo")} <i className="fa-regular fa-arrow-right-long"></i>
                     </button>
                   </div>
                 </div>
@@ -139,6 +161,7 @@ const Banner = () => (
       <div className="dot-light banner__dot"></div>
     </div>
   </section>
-);
+  );
+};
 
 export default Banner;

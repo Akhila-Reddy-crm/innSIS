@@ -16,7 +16,7 @@
 // Top header area start here ***
 .header-top {
   padding: 16px 0;
-  overflow: hidden;
+  overflow: visible;
   background-color: var(--heading-color);
   .header-top-wrp {
     display: flex;
@@ -97,10 +97,26 @@
   &__main {
     @include justify-wrp;
     flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+    .logo {
+      flex-shrink: 0;
+      // img {
+      //   max-height: 60px;
+      //   width: auto;
+      //   height: auto;
+      // }
+    }
     .main-menu {
+      min-width: 0;
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: flex-start;
       ul {
         @include flex;
-        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
         white-space: nowrap;
         li {
           position: relative;
@@ -167,7 +183,7 @@
                   font-size: 18px;
                 }
                 .btn__group {
-                  position: absolute;
+                  position: relative;
                   top: 50%;
                   left: 50%;
                   transform: translate(-50%, -50%);
@@ -227,7 +243,7 @@
         }
       }
       /* shift navigation slightly left to make space for additional CTA */
-      margin-left: 12%;
+      // margin-left: 12%;
       @include breakpoint(max-xl) {
         margin-left: 10%;
       }
@@ -239,18 +255,60 @@
       margin-left: auto;
       display: flex;
       gap: 12px;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
       align-items: center;
+      min-width: 0;
+      flex: 0 0 auto;
+      > * {
+        min-width: 0;
+        flex: 0 1 auto;
+      }
+      .language-switcher {
+        min-width: 0;
+        flex-shrink: 1;
+      }
       .btn-one {
         padding: 8px 14px;
         font-size: 14px;
-        min-width: 110px;
+        min-width: 0;
+        max-width: 220px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+        word-break: keep-all;
+      }
+      @include breakpoint(max-lg) {
+        gap: 8px;
+        .btn-one {
+          padding: 6px 10px;
+          font-size: 12px;
+          max-width: 160px;
+        }
+      }
+      @include breakpoint(max-md) {
+        gap: 6px;
+        .btn-one {
+          padding: 5px 8px;
+          font-size: 11px;
+          max-width: 140px;
+        }
       }
     }
     @include breakpoint(max-lg) {
       padding: 15px 0;
+      // .logo img {
+      //   max-height: 50px;
+      // }
+    }
+    @include breakpoint(max-md) {
+      // .logo img {
+      //   max-height: 40px;
+      // }
     }
      .bars {
       position: relative;
@@ -264,6 +322,20 @@
         border-radius: 10px;
         border: var(--border-1px);
         pointer-events: all;
+      }
+    }
+    // Mobile menu language switcher styles
+    .mobile-language-switcher {
+      width: 100%;
+      button {
+        width: 100%;
+        justify-content: center;
+        background-color: rgba(255,255,255,0.1) !important;
+        border: 1px solid rgba(255,255,255,0.3) !important;
+        color: #fff !important;
+        &:hover {
+          background-color: rgba(255,255,255,0.2) !important;
+        }
       }
     }
   }

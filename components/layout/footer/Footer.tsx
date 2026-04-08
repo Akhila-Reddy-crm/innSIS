@@ -7,8 +7,10 @@ import Three from "@/public/images/shape/footer-regular-right.png";
 import Four from "@/public/images/shape/footer-solid-right.png";
 import Five from "@/public/images/shape/footer-shadow-shape.png";
 import Logo from "@/public/images/logo/logo-white.png";
+import { useT } from "@/components/i18n/useT";
 
 const Footer = () => {
+  const { t } = useT();
   return (
     <footer className="footer-area secondary-bg">
       <div
@@ -93,7 +95,7 @@ const Footer = () => {
             data-aos-delay="200"
             data-aos-duration="1500"
           >
-            <h3 className="footer-title">Quick Links</h3>
+            <h3 className="footer-title">{t("footer.quickLinks", "Quick Links")}</h3>
             <ul>
               <li>
                 <a
@@ -103,7 +105,7 @@ const Footer = () => {
                     document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <i className="fa-regular fa-angles-right me-1"></i> Features
+                  <i className="fa-regular fa-angles-right me-1"></i> {t("nav.features", "Features")}
                 </a>
               </li>
                <li>
@@ -114,7 +116,7 @@ const Footer = () => {
                     document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <i className="fa-regular fa-angles-right me-1"></i> About Us
+                  <i className="fa-regular fa-angles-right me-1"></i> {t("nav.aboutUs", "About Us")}
                 </a>
               </li>
               <li>
@@ -125,7 +127,7 @@ const Footer = () => {
                     document.getElementById('institutions')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <i className="fa-regular fa-angles-right me-1"></i> Our Institutions
+                  <i className="fa-regular fa-angles-right me-1"></i> {t("nav.ourInstitutions", "Our Institutions")}
                 </a>
               </li>
               <li>
@@ -136,7 +138,7 @@ const Footer = () => {
                     document.getElementById('impact-section')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <i className="fa-regular fa-angles-right me-1"></i> Our Impact
+                  <i className="fa-regular fa-angles-right me-1"></i> {t("nav.ourImpact", "Our Impact")}
                 </a>
               </li>
               <li>
@@ -147,7 +149,7 @@ const Footer = () => {
                     document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <i className="fa-regular fa-angles-right me-1"></i> Contact Us
+                  <i className="fa-regular fa-angles-right me-1"></i> {t("nav.contactUs", "Contact Us")}
                 </a>
               </li>
             </ul>
@@ -159,7 +161,7 @@ const Footer = () => {
             data-aos-duration="1500"
             style={{ alignSelf: "flex-start" }}
           >
-            <h3 className="footer-title">Contact Us</h3>
+            <h3 className="footer-title">{t("footer.contactUs", "Contact Us")}</h3>
             <p className="mb-20">
               Head Office
               <br />

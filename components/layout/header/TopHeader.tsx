@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 
 const TopHeader = () => {
   return (
@@ -62,7 +63,10 @@ const TopHeader = () => {
             </li>
           </ul>
           <ul className="link-info">
-            <li>
+            <li style={{ position: "relative", zIndex: 1001 }}>
+              <LanguageSwitcher />
+            </li>
+            <li style={{marginTop:'6px'}}>
               <Link
                 href="https://www.instagram.com/innsis_education/"
                 target="_blank"
@@ -71,7 +75,7 @@ const TopHeader = () => {
                 <i className="fa-brands fa-instagram"></i>
               </Link>
             </li>
-            <li>
+            <li style={{marginTop:'6px'}}>
               <Link
                 href="https://www.linkedin.com/company/innsis/"
                 target="_blank"
@@ -80,7 +84,7 @@ const TopHeader = () => {
                 <i className="fa-brands fa-linkedin-in"></i>
               </Link>
             </li>
-            <li>
+            <li style={{marginTop:'6px'}}>
               <Link
                 href="/"
                 target="_blank"

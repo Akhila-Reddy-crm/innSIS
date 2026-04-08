@@ -1,6 +1,8 @@
 "use client";
+import { useT } from "@/components/i18n/useT";
 
 const CTA = () => {
+  const { t } = useT();
   return (
     <section className="cta-area pt-25 pb-25" id="cta-section">
       <div className="container">
@@ -15,9 +17,14 @@ const CTA = () => {
                 color: "white",
               }}
             >
-              <h2 className="mb-2 text-white">Let&apos;s Connect</h2>
+              <h2 className="mb-2 text-white">
+                {t("ctaSection.title", "Let's Connect")}
+              </h2>
               <p className="mb-20 text-white">
-                Have questions or want to see INNSIS in action? Our team is ready to help with a personalized demo.
+                {t(
+                  "ctaSection.subtitle",
+                  "Have questions or want to see INNSIS in action? Our team is ready to help with a personalized demo."
+                )}
               </p>
               <div className="d-flex flex-wrap justify-content-center">
                 <a
@@ -33,7 +40,8 @@ const CTA = () => {
                     color: "#ffffff",
                   }}
                 >
-                  Request a Demo <i className="fa-regular fa-arrow-right-long"></i>
+                  {t("banner.requestADemo", "Request a Demo")}{" "}
+                  <i className="fa-regular fa-arrow-right-long"></i>
                 </a>
               </div>
             </div>
