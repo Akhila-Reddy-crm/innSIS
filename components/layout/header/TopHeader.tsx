@@ -3,7 +3,7 @@ import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 
 const TopHeader = () => {
   return (
-    <div className="header-top d-none d-lg-block">
+    <div className="header-top">
       <div className="container header__container">
         <div className="header-top-wrp">
           <ul className="info">

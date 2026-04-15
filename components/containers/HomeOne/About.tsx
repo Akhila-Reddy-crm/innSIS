@@ -1,15 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import ModalVideo from "react-modal-video";
 import One from "@/public/images/logo/about.png";
+import OneFr from "@/public/images/logo/about-fr.png";
+import OneEs from "@/public/images/logo/about-es.png";
 import Three from "@/public/images/icon/section-title.png";
 import { useT } from "@/components/i18n/useT";
 
 const About = () => {
   const [isOpen, setOpen] = useState(false);
-  const { t } = useT();
-
+  const { t, lang } = useT();
+console.log(lang,"llllllll")
+  // Select image based on current language
+  const aboutImage = useMemo(() => {
+    if (lang.startsWith("FR")) {
+      // Matches both "fr" and "fr_CA"
+      return OneFr;
+    } else if (lang.startsWith("ES")) {
+      // Matches Spanish
+      return OneEs;
+    }
+    // Default to English
+    return One;
+  }, [lang]);
   return (
     <>
       <section
@@ -36,7 +50,7 @@ const About = () => {
             >
               <div className="about__left-item">
                 <div className="image big-image">
-                  <Image src={One} alt="Image" priority />
+                  <Image src={aboutImage} alt="Image" priority />
                 </div>
               </div>
             </div>

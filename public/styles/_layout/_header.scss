@@ -15,15 +15,38 @@
 
 // Top header area start here ***
 .header-top {
-  padding: 16px 0;
+  padding: 12px 0;
   overflow: visible;
   background-color: var(--heading-color);
+  
+  @include breakpoint(max-md) {
+    padding: 8px 0;
+  }
+  
   .header-top-wrp {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+    @include breakpoint(max-md) {
+      justify-content: center;
+      gap: 16px;
+    }
+    
     .info {
       color: var(--white);
+      display: flex;
+      gap: 8px;
+      
+      @include breakpoint(max-md) {
+        gap: 12px;
+        order: 2;
+        width: 100%;
+        justify-content: center;
+      }
+      
       span {
         color: var(--white);
       }
@@ -31,6 +54,12 @@
         // transition: var(--transition);
         color: var(--white);
         font-size: 15px;
+        white-space: nowrap;
+        
+        @include breakpoint(max-md) {
+          font-size: 12px;
+        }
+        
         &:hover {
           color: var(--primary-color);
         }
@@ -40,26 +69,50 @@
         padding-right: 5px;
       }
       li {
-        float: left;
+        display: flex;
+        align-items: center;
+        gap: 4px;
         line-height: 0;
-		&:nth-of-type(1) {
-			svg {
-				margin-top: -1px !important;
-				margin-right: 3px !important;
-			}
-		}
+        
+        &:nth-of-type(1) {
+          svg {
+            margin-top: -1px !important;
+            margin-right: 3px !important;
+          }
+        }
       }
     }
     .link-info {
       position: relative;
       z-index: 2;
+      display: flex;
+      gap: 12px;
+      
+      @include breakpoint(max-md) {
+        order: 1;
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+      }
+      
       li {
-        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         line-height: 0;
+        
         a {
-          width: 37px;
+          width: auto;
+          min-width: 37px;
           color: var(--white);
           text-align: center;
+          font-size: 16px;
+          
+          @include breakpoint(max-md) {
+            font-size: 18px;
+            min-width: 40px;
+          }
+          
           &:hover {
             color: var(--primary-color);
           }

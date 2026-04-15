@@ -4,7 +4,7 @@ import { useContext, useMemo } from "react";
 import { I18nContext } from "./I18nProvider";
 
 export function useT() {
-  const { strings } = useContext(I18nContext);
+  const { strings, lang } = useContext(I18nContext);
 
   return useMemo(() => {
     function t(key: string, fallback?: string) {
@@ -13,7 +13,7 @@ export function useT() {
       return fallback ?? key;
     }
 
-    return { t };
-  }, [strings]);
+    return { t, lang };
+  }, [strings, lang]);
 }
 

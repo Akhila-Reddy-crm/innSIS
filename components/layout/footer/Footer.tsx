@@ -60,7 +60,7 @@ const Footer = () => {
               <Image src={Logo} alt="INNSIS logo" priority style={{maxHeight:"10vh"}}/>
             </Link>
             <p>
-              INNSIS - Innovation. Insight. Impact.
+              INNSIS - {t("footer.title", "Innovation. Insight. Impact.")} 
             </p>
             <div className="social-icon">
               <Link
@@ -163,7 +163,7 @@ const Footer = () => {
           >
             <h3 className="footer-title">{t("footer.contactUs", "Contact Us")}</h3>
             <p className="mb-20">
-              Head Office
+             {t("footer.headoffice", "Head Office")} 
               <br />
               103-2727 Steeles Ave West Unit 727
               <br />
@@ -175,7 +175,7 @@ const Footer = () => {
               <li>
                 <i className="fa-duotone fa-phone"></i>
                 <div className="info">
-                  <h5>Phone Call:</h5>
+                  <h5>{t("footer.phone", "Phone Call")} :</h5>
                   <p>+1 (844) 466 7471</p>
                 </div>
             </li>
