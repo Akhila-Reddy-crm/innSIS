@@ -113,7 +113,7 @@ const Offer = () => {
                     padding: "20px",
                     background: "rgba(0, 70, 168, 0.95)",
                     borderRadius: "0 0 12px 12px",
-                    minHeight: "150px",
+                    height: "160px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -121,11 +121,11 @@ const Offer = () => {
                 >
                   <h4
                     className="text-white"
-                    style={{ fontSize: "20px", fontWeight: "600" }}
+                    style={{ fontSize: "20px", fontWeight: "600", margin: 0 }}
                   >
                     {t(`institutions.items.${institution.id}.title`)}
                   </h4>
-                  <p className="text-white mb-0" style={{ fontSize: "14px", lineHeight: "1.6", opacity: "0.95" }}>
+                  <p className="text-white mb-0" style={{ fontSize: "14px", lineHeight: "1.6", opacity: "0.95", overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" }}>
                     {t(`institutions.items.${institution.id}.description`)}
                   </p>
                 </div>

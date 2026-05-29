@@ -11,7 +11,7 @@ import { useT } from "@/components/i18n/useT";
 const About = () => {
   const [isOpen, setOpen] = useState(false);
   const { t, lang } = useT();
-console.log(lang,"llllllll")
+console.log(lang,"New Version")
   // Select image based on current language
   const aboutImage = useMemo(() => {
     if (lang.startsWith("FR")) {
