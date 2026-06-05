@@ -143,7 +143,12 @@ const Footer = () => {
               </li>
               <li>
                 <a href="/policy" target="_blank" rel="noopener noreferrer">
-                  <i className="fa-regular fa-angles-right me-1"></i> INNSIS Policy Page
+                  <i className="fa-regular fa-angles-right me-1"></i> Policy Page
+                </a>
+              </li>
+              <li>
+                <a href="/supportagreement" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-regular fa-angles-right me-1"></i> Support Agreement
                 </a>
               </li>
               <li>
