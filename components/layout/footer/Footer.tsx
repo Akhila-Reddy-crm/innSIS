@@ -171,16 +171,7 @@ const Footer = () => {
             data-aos-duration="1500"
             style={{ alignSelf: "flex-start" }}
           >
-            <div className="mb-20" style={{color:'white'}}>
-              <a
-                href="/policy"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                <i className="fa-regular fa-angles-right me-1"></i> Policy
-              </a>
-            </div>
+            
             <h3 className="footer-title">{t("footer.contactUs", "Contact Us")}</h3>
             <p className="mb-20">
              {t("footer.headoffice", "Head Office")} 
