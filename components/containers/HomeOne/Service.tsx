@@ -165,9 +165,7 @@ const Service = () => {
                   <Image src={feature.icon} alt="icon" priority />
                 </div>
                 <h4>
-                  <Link href="/service">
-                    {t(`features.items.${feature.id}.title`)}
-                  </Link>
+                   {t(`features.items.${feature.id}.title`)}
                 </h4>
                 <p>
                   {t(`features.items.${feature.id}.description`)}
